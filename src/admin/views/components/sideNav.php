@@ -30,6 +30,6 @@
     </div>
 </div>
 
-<button class="btn btn-dark float-end m-4 " data-bs-toggle="offcanvas" data-bs-target="#offcanvas" role="button">
+<button class="btn btn-dark position-absolute end-0 m-4" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" role="button">
     <i class="fa-solid fa-bars"></i>
 </button>
