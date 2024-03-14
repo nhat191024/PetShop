@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <script src="./bootstrap/js/bootstrap.bundle.js"></script>
     <script src="https://kit.fontawesome.com/db7aab17a8.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <?php
     //TODO: change this when we have a login system
@@ -17,10 +19,10 @@
     $view = isset($_GET['view']) ? $_GET['view'] : '/';
     switch ($action) {
         case "/":
-            include_once "./client/index.php";
+            require_once "./client/index.php";
             break;
         case "admin":
-            include_once "./admin/index.php";
+            require_once "./admin/index.php";
             break;
     }
     ?>
