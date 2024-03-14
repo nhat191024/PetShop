@@ -6,11 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="/assets/PetShop.svg" />
     <title>PetShop</title>
-    <link rel="stylesheet" href="/style.css">
+    <!--//! I don't know why every time i import this mfs my scrollbar disappears -->
+    <!-- <link rel="stylesheet" href="/style.css"> -->
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
     <script src="./bootstrap/js/bootstrap.bundle.js"></script>
     <script src="https://kit.fontawesome.com/db7aab17a8.js" crossorigin="anonymous"></script>
 </head>
+<style>
+    body::-webkit-scrollbar {
+        display: none;
+    }
+</style>
 
 <body>
     <?php
