@@ -27,7 +27,11 @@
                             <i class=" fa-solid fa-user" style="color: #ffffff;"></i>
                         </button>
                         <ul class="dropdown-menu text-center mt-2">
-                            <li><a class="dropdown-item" href="#">SignIn</a></li>
+                            <li>
+                                <a type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#LoginModal">
+                                    SignIn
+                                </a>
+                            </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -52,3 +56,7 @@
             </div>
         </div>
     </nav>
+
+    <?php 
+    require_once "./client/views/components/LoginForm.php";
+    ?>
