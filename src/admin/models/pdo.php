@@ -1,11 +1,11 @@
 <?php
 /* function kết nối database */
 function pdo_get_connection(){
-    $dburl = "mysql:host=localhost;dbname=thucung;charset=utf8";
+    $db = "mysql:host=localhost;dbname=petshop;charset=utf8";
     $username = 'root';
     $password = '';
 
-    $conn = new PDO($dburl, $username, $password);
+    $conn = new PDO($db, $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     return $conn;
 }
