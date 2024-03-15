@@ -18,23 +18,18 @@
 
 <body>
     <?php
-    require_once "./client/models/account.php";
-
-    //TODO: change this when we have a login system
     $action = isset($_GET['action']) ? $_GET['action'] : '/';
     // $isLoggedIn = isset($_SESSION['user']) ? true : false;
     $userRole = isset($_SESSION['user']) ? $_SESSION['user']['role'] : 0;
     $isLoggedIn = true;
     $view = isset($_GET['view']) ? $_GET['view'] : '/';
 
+
+
     switch ($action) {
         case '/':
-            require_once "./client/index.php";
-            break;
-        case 'admin':
-            if ($isLoggedIn) {
-                require_once "./admin/index.php";
-            }
+            require_once "./views/components/NavBar.php";
+            require_once "./views/home.php";
             break;
     }
     ?>
