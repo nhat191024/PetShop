@@ -57,6 +57,6 @@
         </div>
     </nav>
 
-    <?php 
-    require_once "./client/views/components/LoginForm.php";
+    <?php
+    require_once "./views/components/LoginForm.php";
     ?>
