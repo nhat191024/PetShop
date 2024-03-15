@@ -6,17 +6,21 @@
                 <h1 class="modal-title fs-5" id="LoginModalLabel">Login To PetShop</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form class="modal-body" action="/client/controllers/login.php" method="POST">
-                <div class="mb-3">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username">
+            <form action="/controllers/login.php" method="POST" class="needs-validation">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Username</label>
+                        <input type="text" name="logEmail" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" name="logPassword" class="form-control" id="password" required>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password">
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" name="loginBtn">Login</button>
                 </div>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary" name="loginData">Login</button>
             </form>
         </div>
     </div>
