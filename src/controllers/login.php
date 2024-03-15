@@ -1,25 +1,15 @@
-<?php 
-    $loginData = isset($_POST['loginData']) ? $_POST['loginData'] : 'nothing';
-
-    if ($loginData != 'nothing') {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        loginHandle($email, $password);
-    }
-
-function loginHandle ($email, $password) {
-    require_once "../models/account.php";
-    $account = accountGetByEmail($email);
-    if ($account) {
-        if (password_verify($password, $account['password'])) {
-            $_SESSION['user'] = $account;
-            header('Location: /');
-        } else {
-            echo "Wrong password";
-        }
-    } else {
-        echo "Account not found";
-    }
+<?php
+require_once "../models/account.php";
+if (isset($_POST['loginBtn'])) {
+    $email = $_POST['logEmail'];
+    $password = $_POST['logPassword'];
+    loginAuth($email, $password);
 }
 
-?>
+function loginAuth($email, $password)
+{
+    $account = accountGetByEmail($email);
+    if(!$account){
+        header('Location: /');
+    }
+}
