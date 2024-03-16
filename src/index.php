@@ -18,20 +18,24 @@
 
 <body>
     <?php
-    $action = isset($_GET['action']) ? $_GET['action'] : '/';
-    // $isLoggedIn = isset($_SESSION['user']) ? true : false;
-    $userRole = isset($_SESSION['user']) ? $_SESSION['user']['role'] : 0;
-    $isLoggedIn = true;
+    require_once "./views/components/NavBar.php";
+
+    $loginFailed = isset($_GET['loginFailed']) ? "show" : '';
+    $userRole = isset($_COOKIE['role']) ? $_COOKIE['role'] : '';
     $view = isset($_GET['view']) ? $_GET['view'] : '/';
-
-
-
-    switch ($action) {
+    $details = isset($_GET['details']) ? $_GET['details'] : '';
+    switch ($view) {
         case '/':
-            require_once "./views/components/NavBar.php";
-            require_once "./views/home.php";
+            require_once "./controllers/pets/list.php";
+            require_once "./controllers/home.php";
+            break;
+        case 'detail':
+            if ($details != '') {
+                require_once "./controllers/pets/details.php";
+            }
             break;
     }
+
     ?>
 </body>
 
