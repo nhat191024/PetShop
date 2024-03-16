@@ -6,11 +6,19 @@
     </div>
     <div class="offcanvas-body ">
         <div class="list-group list-group-flush py-2 d-flex flex-column gap-3 w-100">
-            <a href="#" class="list-group-item list-group-item-action rounded-2">Dashboard</a>
-            <a href="#" class="list-group-item list-group-item-action rounded-2">Menu Item</a>
-            <a href="#" class="list-group-item list-group-item-action rounded-2">Menu Item</a>
-            <a href="#" class="list-group-item list-group-item-action rounded-2">Menu Item</a>
-            <a href="#" class="list-group-item list-group-item-action rounded-2">Menu Item</a>
+            <a href="/admin/" class="list-group-item list-group-item-action rounded-2">Dashboard</a>
+            <button class="dropdown dropdown-toggle list-group-item list-group-item-action" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">Categories</button>
+            <ul class="dropdown-menu w-75 py-0" aria-labelledby="dropdown">
+                <li> <a href="/admin/?view=Pet_Categories" class="list-group-item list-group-item-action rounded-2">Pet Categories</a></li>
+                <li><a href="/admin/?view=Product_Categories" class="list-group-item list-group-item-action rounded-2">Product Categories</a></li>
+            </ul>
+            <button class="dropdown dropdown-toggle list-group-item list-group-item-action" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">Pet Details</button>
+            <ul class="dropdown-menu w-75 py-0" aria-labelledby="dropdown">
+                <li> <a href="/admin/?view=Colors" class="list-group-item list-group-item-action rounded-2">Pet Colors</a></li>
+                <li><a href="/admin/?view=Sources" class="list-group-item list-group-item-action rounded-2">Pet Source</a></li>
+            </ul>
+            <a href="/admin/?view=Pets" class="list-group-item list-group-item-action rounded-2">Pets</a>
+            <a href="/" class="list-group-item list-group-item-action rounded-2">Home Page</a>
             <button class="dropdown list-group-item list-group-item-action" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
                 User
             </button>
@@ -30,6 +38,6 @@
     </div>
 </div>
 
-<button class="btn btn-dark position-absolute end-0 m-4" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" role="button">
+<button class="btn btn-dark position-absolute end-0 bottom-0 m-4" tabindex="-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" role="button">
     <i class="fa-solid fa-bars"></i>
 </button>
