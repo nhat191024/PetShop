@@ -1,4 +1,4 @@
-    <nav class="navbar navbar-expand-lg bg-body-tertiary fs-5 fixed-top px-5">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fs-5 px-5">
         <div class="container-fluid">
             <a class="navbar-brand " href="#">
                 <img src="/assets/PetShop.svg" alt="Logo" width="70" height="64" class="d-inline-block align-text-top">
@@ -27,21 +27,26 @@
                             <i class=" fa-solid fa-user" style="color: #ffffff;"></i>
                         </button>
                         <ul class="dropdown-menu text-center mt-2">
-                            <li>
-                                <a type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#LoginModal">
-                                    SignIn
-                                </a>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">SignUp</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-
-                            <!-- //TODO: change this when we have a login system -->
-                            <li><a class="dropdown-item" href="/?action=admin">Admin</a></li>
+                            <?php
+                            if (isset($_COOKIE['loggedIn'])) { ?>
+                                <li><p>Welcome <strong><?= $_COOKIE["username"] ?></strong></p></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <?php if ($_COOKIE['role'] == '1') { ?>
+                                    <li><a class="dropdown-item" href="/admin">Admin Dashboard</a></li>
+                                <?php }
+                            } else { ?>
+                                <li>
+                                    <a type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#LoginModal">
+                                        SignIn
+                                    </a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">SignUp</a></li>
+                            <?php } ?>
                         </ul>
                     </div>
                     <div class="dropstart">
