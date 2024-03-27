@@ -18,6 +18,7 @@
 
 <body>
     <?php
+    session_start();
     require_once "./views/components/NavBar.php";
 
     $loginFailed = isset($_GET['loginFailed']) ? "show" : '';

@@ -28,12 +28,14 @@
                         </button>
                         <ul class="dropdown-menu text-center mt-2">
                             <?php
-                            if (isset($_COOKIE['loggedIn'])) { ?>
-                                <li><p>Welcome <strong><?= $_COOKIE["username"] ?></strong></p></li>
+                            if (isset($_SESSION['loggedIn'])) { ?>
+                                <li>
+                                    <p>Welcome <strong><?= $_SESSION["username"] ?></strong></p>
+                                </li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <?php if ($_COOKIE['role'] == '1') { ?>
+                                <?php if ($_SESSION['role'] == '1') { ?>
                                     <li><a class="dropdown-item" href="/admin">Admin Dashboard</a></li>
                                 <?php }
                             } else { ?>

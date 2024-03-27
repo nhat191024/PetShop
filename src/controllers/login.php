@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "../models/account.php";
 if (isset($_POST['loginBtn'])) {
     $username = $_POST['logUsername'];
@@ -15,13 +16,13 @@ function loginAuth($username, $password)
     } else if($email || $user){
         //! I has to use cookie instead of session because session is not working and i don't know why, i will fix it later (i hope so xD)
         if($password == $email['password'] || $password == $user['password']){
-            setcookie('loggedIn', 'true', time() + 3600, '/');
+            $_SESSION['loggedIn'] = true;
             if($user){
-                setcookie('username', $user['username'], time() + 3600, '/');
-                setcookie('role', $user['role'], time() + 3600, '/');
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['role'] = $user['role'];
             } else {
-                setcookie('username', $email['username'], time() + 3600, '/');
-                setcookie('role', $email['role'], time() + 3600, '/');
+                $_SESSION['username'] = $email['username'];
+                $_SESSION['role'] = $email['role'];
             }
             header('Location: /');
         } else {
