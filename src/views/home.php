@@ -1,21 +1,18 @@
 <div class="vh-100 container ">
     <div class="row row-cols-3 gap-2 justify-content-center mt-2">
         <?php foreach ($listPet as $x) { ?>
-            <div class="card" style="width: 18rem;">
-                <img src="../assets/banner1.png" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title"><?= $x['name'] ?></h5>
-                    <h6 class="card-subtitle text-body-secondary">Category: <?= getPetCategoryById($x['category_id'])['name']  ?></h6>
-                    <p class="card-text">
-                        Source: <?= getSourceById($x['source'])['name']  ?></p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Price: <?= $x['price'] ?></li>
-                </ul>
-                <div class="card-body">
-                    <a href="#" class="card-link">Buy</a>
-                    <a href="/?view=detail&details=<?= $x['id']?>" class="card-link">Details</a>
-                </div>
+            <div class="card p-2" style="width: 18rem;">
+                <a href="" class="text-decoration-none">
+                    <img src="../assets/banner1.png" class="card-img-top rounded-2 ">
+                    <div class="card-body p-1 pt-2 p-0">
+                        <h6 class="card-subtitle text-body-secondary"><?= getSourceById($x['source'])['name']  ?> <?= getPetCategoryById($x['category_id'])['name']  ?></h6>
+                        <h5 class="card-title"><?= $x['name'] ?></h5>
+                        <!-- //TODO: Rating system but i will do in the future -->
+                        <h6>⭐⭐⭐⭐⭐</h6>
+                        <h6 class="mt-3 d-flex justify-content-between m-0"><span class=" text-primary">$<?= $x['price'] ?></span><a href="#" class="rounded-circle p-2 bg-primary"><i class="fa-solid fa-cart-shopping" style="color: #002e52;"></i></a></h6>
+                    </div>
+                </a>
+
             </div>
         <?php } ?>
     </div>
