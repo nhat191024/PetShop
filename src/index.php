@@ -7,7 +7,6 @@
     <link rel="icon" type="image/svg+xml" href="/assets/PetShop.svg" />
     <title>PetShop</title>
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
-    <script src="./bootstrap/js/bootstrap.bundle.js"></script>
     <script src="https://kit.fontawesome.com/db7aab17a8.js" crossorigin="anonymous"></script>
 </head>
 <style>
@@ -19,6 +18,8 @@
 <body>
     <?php
     session_start();
+    require_once "./controllers/category/petCategory/list.php";
+    require_once "./controllers/category/productCategory/list.php";
     require_once "./views/components/NavBar.php";
 
     $loginFailed = isset($_GET['loginFailed']) ? "show" : '';
@@ -38,6 +39,9 @@
     }
 
     ?>
+
+    <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./scripts/index.js"></script>
 </body>
 
 </html>
