@@ -19,9 +19,9 @@
                             Pet Category
                         </a>
                         <ul class="dropdown-menu text-center">
-                            <?php foreach($listPetCategory as $x) : ?>
-                            <li><a class="dropdown-item" href="#"><?= $x['name'] ?></a></li>
-                            <hr class="dropdown-divider">
+                            <?php foreach ($listPetCategory as $x) : ?>
+                                <li><a class="dropdown-item" href="#"><?= $x['name'] ?></a></li>
+                                <hr class="dropdown-divider">
                             <?php endforeach; ?>
                         </ul>
                     </li>
@@ -30,9 +30,9 @@
                             Product Category
                         </a>
                         <ul class="dropdown-menu text-center">
-                            <?php foreach($listProductCategory as $x) : ?>
-                            <li><a class="dropdown-item" href="#"><?= $x['name'] ?></a></li>
-                            <hr class="dropdown-divider">
+                            <?php foreach ($listProductCategory as $x) : ?>
+                                <li><a class="dropdown-item" href="#"><?= $x['name'] ?></a></li>
+                                <hr class="dropdown-divider">
                             <?php endforeach; ?>
                         </ul>
                     </li>
@@ -60,7 +60,7 @@
                                 <?php if ($_SESSION['role'] == '1') : ?>
                                     <li><a class="dropdown-item" href="/admin">Admin Dashboard</a></li>
                                 <?php endif;
-                                } else { ?>
+                            } else { ?>
                                 <li>
                                     <a type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#LoginModal">
                                         SignIn
@@ -73,12 +73,20 @@
                             <?php } ?>
                         </ul>
                     </div>
-                    <div class="dropstart">
+                    <div class="dropdown">
                         <button class="btn btn-dark" style="width:60px;" data-bs-toggle="dropdown">
                             <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>
                         </button>
-                        <ul class="dropdown-menu text-center mt-5">
+                        <ul class="dropdown-menu text-center mt-1">
                             <li>cart item</li>
+                        </ul>
+                    </div>
+                    <div class="dropstart">
+                        <button class="btn btn-dark" style="width:60px;" data-bs-toggle="dropdown">
+                            <i class="fa-solid fa-calendar-days" style="color: #ffffff;"></i>
+                        </button>
+                        <ul class="dropdown-menu text-center mt-5">
+                            <li>Your Schedule</li>
                         </ul>
                     </div>
                 </div>
