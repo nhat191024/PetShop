@@ -14,6 +14,28 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Product</a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Pet Category
+                        </a>
+                        <ul class="dropdown-menu text-center">
+                            <?php foreach($listPetCategory as $x) : ?>
+                            <li><a class="dropdown-item" href="#"><?= $x['name'] ?></a></li>
+                            <hr class="dropdown-divider">
+                            <?php endforeach; ?>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Product Category
+                        </a>
+                        <ul class="dropdown-menu text-center">
+                            <?php foreach($listProductCategory as $x) : ?>
+                            <li><a class="dropdown-item" href="#"><?= $x['name'] ?></a></li>
+                            <hr class="dropdown-divider">
+                            <?php endforeach; ?>
+                        </ul>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Introduce</a>
                     </li>
@@ -35,10 +57,10 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <?php if ($_SESSION['role'] == '1') { ?>
+                                <?php if ($_SESSION['role'] == '1') : ?>
                                     <li><a class="dropdown-item" href="/admin">Admin Dashboard</a></li>
-                                <?php }
-                            } else { ?>
+                                <?php endif;
+                                } else { ?>
                                 <li>
                                     <a type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#LoginModal">
                                         SignIn
