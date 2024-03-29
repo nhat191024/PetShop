@@ -22,7 +22,7 @@
 
 <body>
     <?php
-    if (isset($_SESSION['loggedIn']) && $_SESSION['role'] != '1') {
+    if (!isset($_SESSION['loggedIn']) && $_SESSION['role'] != 1) {
         header('Location: /');
     }
     $view = isset($_GET['view']) ? $_GET['view'] : 'Dashboard';
