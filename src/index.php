@@ -39,6 +39,7 @@
     switch ($view) {
         case '/':
             require_once "./controllers/pets/list.php";
+            require_once "./controllers/category/petCategory/list.php";
             require_once "./controllers/home.php";
             break;
         case 'detail':
