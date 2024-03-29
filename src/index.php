@@ -37,9 +37,7 @@
             }
             break;
     }
-
     ?>
-
     <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="./scripts/index.js"></script>
 </body>
