@@ -1,4 +1,4 @@
-    <nav class="navbar navbar-expand-lg bg-body-tertiary fs-5 px-5">
+    <nav class="navbar navbar-expand-lg bg-info bg-gradient fs-5 fw-bold px-5">
         <div class="container-fluid">
             <a class="navbar-brand " href="#">
                 <img src="/assets/PetShop.svg" alt="Logo" width="40" height="40" class="d-inline-block align-text-top">
@@ -45,8 +45,8 @@
                 </ul>
                 <div class="d-flex gap-3 ">
                     <div class="dropdown">
-                        <button class="btn btn-dark" data-bs-toggle="dropdown" style="width:60px;">
-                            <i class=" fa-solid fa-user" style="color: #ffffff;"></i>
+                        <button class="btn btn-info bg-gradient border border-2 border-black" data-bs-toggle="dropdown" style="width:60px;">
+                            <i class="fa-solid fa-user" style="color: #000000;"></i>
                         </button>
                         <ul class="dropdown-menu text-center mt-2">
                             <?php
@@ -74,16 +74,16 @@
                         </ul>
                     </div>
                     <div class="dropdown">
-                        <button class="btn btn-dark" style="width:60px;" data-bs-toggle="dropdown">
-                            <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>
+                        <button class="btn btn-info bg-gradient border border-2 border-black" style="width:60px;" data-bs-toggle="dropdown">
+                            <i class="fa-solid fa-cart-shopping" style="color: #000000;"></i>
                         </button>
                         <ul class="dropdown-menu text-center mt-1">
                             <li>cart item</li>
                         </ul>
                     </div>
                     <div class="dropstart">
-                        <button class="btn btn-dark" style="width:60px;" data-bs-toggle="dropdown">
-                            <i class="fa-solid fa-calendar-days" style="color: #ffffff;"></i>
+                        <button class="btn btn-info bg-gradient border border-2 border-black" style="width:60px;" data-bs-toggle="dropdown">
+                            <i class="fa-solid fa-calendar-days" style="color: #000000;"></i>
                         </button>
                         <ul class="dropdown-menu text-center mt-5">
                             <li>Your Schedule</li>
