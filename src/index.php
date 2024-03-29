@@ -13,11 +13,21 @@
     body::-webkit-scrollbar {
         display: none;
     }
+
+    body {
+        background-color: #f9f9fb;
+    }
 </style>
 
 <body>
     <?php
     session_start();
+    // function automatic destroy session after 30 minutes
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
+        session_unset();
+        session_destroy();
+    }
+    $_SESSION['LAST_ACTIVITY'] = time();
     require_once "./controllers/category/petCategory/list.php";
     require_once "./controllers/category/productCategory/list.php";
     require_once "./views/components/NavBar.php";
