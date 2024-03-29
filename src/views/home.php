@@ -5,19 +5,32 @@
         <h3>Discover quality and unique products related to caring for and loving your four-legged family members 💖</h3>
     </div>
     <img src="../assets/banner3RemoveBg.png" alt="" class="w-50  h-75">
+</div>
+<div class="vh-100 container">
+    <h2 class="text-center text-info fw-bold">OUR PETS</h2>
+    <div class="d-flex gap-3 py-2  justify-content-center ">
+        <?php foreach($listPetCategory as $x) : ?>
+            <a href="" class="btn btn-outline-info"><?= $x['name'] ?></a>
+        <?php endforeach; ?>
     </div>
-<div class="vh-100 container ">
-    <h2 class="text-center">Our Pets</h2>
-    <div class="row row-cols-3 gap-2 justify-content-center mt-2">
+    <div class="row row-cols-4 gap-3 justify-content-center">
         <?php foreach ($listPet as $x) { ?>
-            <div class="card p-2 bg-body-tertiary" style="width: 18rem;">
+            <div class="card p-2 bg-white" style="width: 18rem;">
                 <a href="/?view=detail&details=<?= $x['id'] ?>" class="text-decoration-none">
-                    <img src="../assets/banner1.png" class="card-img-top rounded-2 ">
-                    <div class="card-body p-1 pt-2 p-0">
+                    <img src="../assets/banner1.png" class="card-img-top rounded-2">
+                    <div class="card-body =">
                         <h6 class="card-subtitle text-body-secondary"><?= getSourceById($x['source'])['name']  ?> <?= getPetCategoryById($x['category_id'])['name']  ?></h6>
-                        <h5 class="card-title"><?= $x['name'] ?></h5>
+                        <h5 class="card-title text-info"><?= $x['name'] ?></h5>
                         <h6 class="mt-3 d-flex justify-content-between m-0">
-                            <span class=" text-primary">$<?= $x['price'] ?></span>
+                            <span class=" text-info">
+                                <?php
+                                $a = strrev($x['price']);
+                                $b = str_split($a, 3);
+                                $c = implode(',', $b);
+                                $d = strrev($c);
+                                echo $d;
+                                ?>
+                            </span>
                         </h6>
                     </div>
                 </a>
