@@ -38,8 +38,20 @@
                 <?php break;
                 case "Pets": ?>
                     <form action="./controllers/pets/add.php" method="POST">
-                        <div class="modal-body">
-                            <div class="mb-3">
+                        <div class="modal-body row row-cols-2">
+                            <div class="mb-3 col-12">
+                                <label for="petName" class="form-label">Pet Name</label>
+                                <input type="text" name="petName" class="form-control" id="petName" required>
+                            </div>
+                            <div class="mb-3 col">
+                                <label for="petPrice" class="form-label">Pet Price</label>
+                                <input type="number" name="petPrice" class="form-control" id="petPrice" required>
+                            </div>
+                            <div class="mb-3 col">
+                                <label for="petAge" class="form-label">Pet Age</label>
+                                <input type="number" name="petAge" class="form-control" id="petAge" required>
+                            </div>
+                            <div class="mb-3 col">
                                 <label for="petCategory" class="form-label">Pet Category</label>
                                 <select class="form-select" name="petCategory" id="petCategory" required>
                                     <?php foreach ($listPetCategory as $x) { ?>
@@ -47,11 +59,7 @@
                                     <?php } ?>
                                 </select>
                             </div>
-                            <div class="mb-3">
-                                <label for="petName" class="form-label">Pet Name</label>
-                                <input type="text" name="petName" class="form-control" id="petName" required>
-                            </div>
-                            <div class="mb-3">
+                            <div class="mb-3 col">
                                 <label for="petColor" class="form-label">Pet Color</label>
                                 <select class="form-select" name="petColor" required>
                                     <?php foreach ($listColor as $x) { ?>
@@ -59,22 +67,14 @@
                                     <?php } ?>
                                 </select>
                             </div>
-                            <div class="mb-3">
-                                <label for="petPrice" class="form-label">Pet Price</label>
-                                <input type="number" name="petPrice" class="form-control" id="petPrice" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="petAge" class="form-label">Pet Age</label>
-                                <input type="number" name="petAge" class="form-control" id="petAge" required>
-                            </div>
-                            <div class="mb-3">
+                            <div class="mb-3 col">
                                 <label for="petGender" class="form-label">Pet Gender</label>
                                 <select class="form-select" name="petGender" id="petGender" required>
                                     <option value="1">Male</option>
                                     <option value="2">Female</option>
                                 </select>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 col">
                                 <label for="petSource" class="form-label">Pet Source</label>
                                 <select class="form-select" name="petSource" id="petSource" required>
                                     <?php foreach ($listSource as $x) { ?>
@@ -82,16 +82,20 @@
                                     <?php } ?>
                                 </select>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 col">
                                 <label for="petVaccination" class="form-label">Pet Vaccination</label>
                                 <select class="form-select" name="petVaccination" id="petVaccination" required>
                                     <option value="vaccinated">Vaccinated</option>
                                     <option value="not vaccinated">Not Vaccinated</option>
                                 </select>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 col">
                                 <label for="petQuantity" class="form-label">Pet Quantity</label>
                                 <input type="number" name="petQuantity" class="form-control" id="petQuantity" required>
+                            </div>
+                            <div class="mb-3 col-12">
+                                <label for="petImg" class="form-label">Pet image</label>
+                                <input class="form-control" type="file" name="petImg" id="petImg" required>
                             </div>
                         </div>
                         <div class="modal-footer">
