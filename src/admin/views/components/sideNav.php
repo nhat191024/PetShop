@@ -38,6 +38,6 @@
     </div>
 </div>
 
-<button class="btn btn-dark position-absolute end-0 bottom-0 m-4" tabindex="-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" role="button">
-    <i class="fa-solid fa-bars"></i>
+<button class="btn btn-info position-absolute end-0 bottom-0 m-4" tabindex="-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" role="button">
+    <i class="fa-solid fa-bars" style="color: #ffffffff"></i>
 </button>
