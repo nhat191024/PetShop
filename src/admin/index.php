@@ -7,6 +7,7 @@
     <link rel="icon" type="image/svg+xml" href="/assets/PetShop.svg" />
     <title>PetShop Admin</title>
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../style.css">
     <script src="/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="https://kit.fontawesome.com/db7aab17a8.js" crossorigin="anonymous"></script>
 </head>
