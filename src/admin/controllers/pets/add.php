@@ -11,6 +11,20 @@ if (!isset($_POST['createPets'])) {
     $gender = $_POST['petGender'];
     $source = $_POST['petSource'];
     $vaccination = $_POST['petVaccination'];
-    createPet($category_id, $name, $color_id, $price, $age, $gender, $source, $vaccination, $quantity);
-    header('Location: /admin/?view=Pets');
+    $img_name = $_FILES['petImg']['name'];
+    $img_tmp_name = $_FILES['petImg']['tmp_name'];
+    $img_size = $_FILES['petImg']['size'];
+    $img_error = $_FILES['petImg']['error'];
+
+    if ($img_error == 0) {
+        $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
+        $img_ex_lc = strtolower($img_ex);
+        $img_new_name = uniqid("PET-", true) . "." . $img_ex;
+        $img_path = 'upload/' . $img_new_name;
+        $img_upload_path = '../../../upload/' . $img_new_name;
+        move_uploaded_file($img_tmp_name, $img_upload_path);
+
+        createPet($category_id, $name, $color_id, $price, $age, $gender, $source, $vaccination, $img_path);
+        header('Location: /admin/?view=Pets');
+    }
 }
