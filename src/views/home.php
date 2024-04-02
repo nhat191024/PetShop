@@ -29,7 +29,7 @@
                                 $c = implode(',', $b);
                                 $d = strrev($c);
                                 echo $d;
-                                ?>
+                                ?>₫
                             </span>
                         </h6>
                     </div>
