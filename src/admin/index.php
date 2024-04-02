@@ -16,6 +16,10 @@
         display: none;
     }
 
+    body {
+        font-family: 'Lexend', sans-serif;
+    }
+
     .headerDashboard {
         width: 10%;
     }
@@ -48,8 +52,14 @@
             case 'Sources':
                 require_once 'controllers/source/list.php';
                 break;
+            case 'Breeds':
+                require_once 'controllers/breed/list.php';
+                break;
             case 'Pets':
                 require_once 'controllers/pets/list.php';
+                break;
+            case 'Products':
+                require_once 'controllers/products/list.php';
                 break;
             default:
                 require_once 'views/dashboard.php';
