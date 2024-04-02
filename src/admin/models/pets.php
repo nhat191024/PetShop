@@ -10,8 +10,14 @@ function getAllPet() {
     return pdo_query($sql);
 }
 
-function createPet($category_id, $name, $color_id, $price, $age, $gender, $source, $vaccination, $quantity) {
-    $sql = "INSERT INTO pet (category_id, name, color_id, price, age, gender, source, vaccination, quantity) VALUES ($category_id, '$name', $color_id, $price, $age, '$gender', '$source', '$vaccination', '$quantity')";
+function getAllPetByPage($page, $pageSize) {
+    $firstIndex = ($page - 1) * $pageSize;
+    $sql = "SELECT * FROM pet LIMIT $firstIndex, $pageSize";
+    return pdo_query($sql);
+}
+
+function createPet($category_id, $name, $color_id, $price, $age, $gender, $source, $vaccination, $img_path) {
+    $sql = "INSERT INTO pet (category_id, name, color_id, price, age, gender, source, vaccination, img_path) VALUES ($category_id, '$name', $color_id, $price, $age, '$gender', '$source', '$vaccination', '$img_path')";
     pdo_execute($sql);
 }
 ?>
