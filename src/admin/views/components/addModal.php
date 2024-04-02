@@ -37,7 +37,7 @@
                     </form>
                 <?php break;
                 case "Pets": ?>
-                    <form action="./controllers/pets/add.php" method="POST">
+                    <form action="./controllers/pets/add.php" method="POST" enctype="multipart/form-data">
                         <div class="modal-body row row-cols-2">
                             <div class="mb-3 col-12">
                                 <label for="petName" class="form-label">Pet Name</label>
@@ -88,10 +88,6 @@
                                     <option value="vaccinated">Vaccinated</option>
                                     <option value="not vaccinated">Not Vaccinated</option>
                                 </select>
-                            </div>
-                            <div class="mb-3 col">
-                                <label for="petQuantity" class="form-label">Pet Quantity</label>
-                                <input type="number" name="petQuantity" class="form-control" id="petQuantity" required>
                             </div>
                             <div class="mb-3 col-12">
                                 <label for="petImg" class="form-label">Pet image</label>
