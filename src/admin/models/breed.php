@@ -11,6 +11,12 @@ function getBreedById($id) {
     return pdo_query_one($sql);
 }
 
+function getAllBreedByPage($page, $pageSize) {
+    $firstIndex = ($page - 1) * $pageSize;
+    $sql = "SELECT * FROM breed LIMIT $firstIndex, $pageSize";
+    return pdo_query($sql);
+}
+
 function createBreed($breedName) {
     $sql = "INSERT INTO breed (name) VALUES ('$breedName')";
     pdo_execute($sql);
