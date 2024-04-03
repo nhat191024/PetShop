@@ -33,6 +33,7 @@
                     <th scope="col">Price</th>
                     <th scope="col">Age</th>
                     <th scope="col">Gender</th>
+                    <th scope="col">Breed</th>
                     <th scope="col">Source</th>
                     <th scope="col">Category</th>
                     <th scope="col">Color</th>
@@ -42,7 +43,7 @@
             </thead>
             <tbody class=" fw-medium">
                 <?php
-                foreach ($listPet as $key => $x) { ?>
+                foreach ($listPetPage as $key => $x) { ?>
                     <tr>
                         <th style="width: 10%;" class="rounded-start-3"><img src="../<?= $x['img_path'] ?>" alt="" width="100%"></th>
                         <td><?= $x['name'] ?></td>
@@ -64,6 +65,7 @@
                                 echo "Male";
                             }     ?>
                         </td>
+                        <td></td>
                         <td><?= getSourceById($x['source'])['name']  ?></td>
                         <td><?= getPetCategoryById($x['category_id'])['name']  ?></td>
                         <td><?= getColorById($x['color_id'])['name']  ?></td>

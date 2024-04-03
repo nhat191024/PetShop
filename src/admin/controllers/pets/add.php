@@ -9,6 +9,7 @@ if (!isset($_POST['createPets'])) {
     $price = $_POST['petPrice'];
     $age = $_POST['petAge'];
     $gender = $_POST['petGender'];
+    $breed = $_POST['petBreed'];
     $source = $_POST['petSource'];
     $vaccination = $_POST['petVaccination'];
     $img_name = $_FILES['petImg']['name'];
@@ -24,7 +25,7 @@ if (!isset($_POST['createPets'])) {
         $img_upload_path = '../../../upload/' . $img_new_name;
         move_uploaded_file($img_tmp_name, $img_upload_path);
 
-        createPet($category_id, $name, $color_id, $price, $age, $gender, $source, $vaccination, $img_path);
+        createPet($category_id, $name, $color_id, $price, $age, $gender, $source, $breed, $vaccination, $img_path);
         header('Location: /admin/?view=Pets');
     }
 }
