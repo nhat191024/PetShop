@@ -17,6 +17,7 @@
     }
 
     body {
+        background-color: #f2f2f2;
         font-family: 'Lexend', sans-serif;
     }
 
