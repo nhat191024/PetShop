@@ -52,9 +52,17 @@
                                 <input type="number" name="petAge" class="form-control" id="petAge" required>
                             </div>
                             <div class="mb-3 col">
+                                <label for="petBreed" class="form-label">Pet Breed</label>
+                                <select class="form-select" name="petBreed" id="petBreed" required>
+                                    <?php foreach (getAllBreed() as $x) { ?>
+                                        <option value="<?= $x['id'] ?>"><?= $x['name'] ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                            <div class="mb-3 col">
                                 <label for="petCategory" class="form-label">Pet Category</label>
                                 <select class="form-select" name="petCategory" id="petCategory" required>
-                                    <?php foreach ($listPetCategory as $x) { ?>
+                                    <?php foreach (getPetCategory() as $x) { ?>
                                         <option value="<?= $x['id'] ?>"><?= $x['name'] ?></option>
                                     <?php } ?>
                                 </select>
@@ -62,7 +70,7 @@
                             <div class="mb-3 col">
                                 <label for="petColor" class="form-label">Pet Color</label>
                                 <select class="form-select" name="petColor" required>
-                                    <?php foreach ($listColor as $x) { ?>
+                                    <?php foreach (getAllColor() as $x) { ?>
                                         <option value="<?= $x['id'] ?>"><?= $x['name'] ?></option>
                                     <?php } ?>
                                 </select>
@@ -77,7 +85,7 @@
                             <div class="mb-3 col">
                                 <label for="petSource" class="form-label">Pet Source</label>
                                 <select class="form-select" name="petSource" id="petSource" required>
-                                    <?php foreach ($listSource as $x) { ?>
+                                    <?php foreach (getAllSource() as $x) { ?>
                                         <option value="<?= $x['id'] ?>"><?= $x['name'] ?></option>
                                     <?php } ?>
                                 </select>
@@ -121,6 +129,21 @@
                             <div class="mb-3">
                                 <label for="petColor" class="form-label">Pet Color</label>
                                 <input type="text" name="petColor" class="form-control" id="petColor" required>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" name="create<?= $view ?>">Create</button>
+                        </div>
+                    </form>
+                <?php break;
+                case "Breeds": ?>
+                    <form action="./controllers/breed/add.php" method="POST">
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="petBreed" class="form-label">Pet Breed</label>
+                                <input type="text" name="petBreed" class="form-control" id="petBreed" required>
                                 </select>
                             </div>
                         </div>
