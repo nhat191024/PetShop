@@ -13,9 +13,7 @@ function loginAuth($username, $password)
     $user = accountGetByUsername($username);
     if(!$email && !$user){
         header('Location: /?loginFailed=true');
-    } else if($email || $user){
-        //! I has to use cookie instead of session because session is not working and i don't know why, i will fix it later (i hope so xD)
-        if($password == $email['password'] || $password == $user['password']){
+    } else if($password == $email['password'] || $password == $user['password']){
             $_SESSION['loggedIn'] = true;
             if($user){
                 $_SESSION['username'] = $user['username'];
@@ -28,5 +26,4 @@ function loginAuth($username, $password)
         } else {
             header('Location: /?loginFailed=true');
         }
-    }
 }
