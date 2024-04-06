@@ -32,7 +32,7 @@
 
 <body>
     <?php
-  
+    session_start();
     // Check if user is not logged in or user is not admin, redirect to home page
     if (!isset($_SESSION['loggedIn']) || $_SESSION['role'] != 1) {
         header('Location: /');
