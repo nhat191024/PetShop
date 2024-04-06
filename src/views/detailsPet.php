@@ -1,7 +1,7 @@
 <div class="vh-100 container mt-3">
     <div class="w-100 h-50 p-4 bg-white d-flex justify-content-start gap-3 rounded-2">
         <div class="w-50 h-50">
-            <img src="../assets/banner1.png" class="img-fluid rounded-2 ">
+            <img src="<?= $pet['img_path'] ?>" class="img-fluid rounded-2 ">
         </div>
         <div class="w-50">
             <h2 class="text-center"><?= $pet['name'] ?></h2>
@@ -39,7 +39,7 @@
                         </button>
                     </h5>
                     <h5><button class="btn border border-1 border-info text-info" disabled><?= getColorById($pet['color_id'])['name']  ?></button></h5>
-                    <h5><button class="btn border border-1 border-info text-info" disabled><?= getSourceById($pet['source'])['name']  ?></button></h5>
+                    <h5><button class="btn border border-1 border-info text-info" disabled><?= getSourceById($pet['source_id'])['name']  ?></button></h5>
                     <h5><button class="btn border border-1 border-info text-info" disabled><?= $pet['vaccination'] ?></button></h5>
                 </div>
             </div>
