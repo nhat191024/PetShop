@@ -20,32 +20,37 @@
         </ol>
     </div>
     <div class="admin-main-container h-50 bg-white p-2 rounded-3">
-        <button type="button" class="btn btn-outline-info fw-bold m-1 float-end" data-bs-toggle="modal" data-bs-target="#add<?= $view ?>">
-            + Add <?= $view ?>
-        </button>
+        <div class="d-flex  justify-content-between px-5 pb-3">
+            <form class="d-flex w-25" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-info" type="submit">Search</button>
+            </form>
+            <button type="button" class="btn btn-outline-info fw-bold m-1 float-end" data-bs-toggle="modal" data-bs-target="#add<?= $view ?>">
+                + Add <?= $view ?>
+            </button>
+        </div>
         <table class="table table-hover caption-top table-borderless table-striped table-hover text-center align-middle">
-            <caption class="fw-bold">List of Pets</caption>
             <thead>
                 <tr>
-                    <th scope="col">Pet Img</th>
-                    <th scope="col">Pet Name</th>
-                    <th scope="col">Pet ID</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Gender</th>
-                    <th scope="col">Breed</th>
-                    <th scope="col">Source</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Color</th>
-                    <th scope="col">Vaccination</th>
-                    <th scope="col">Action</th>
+                    <th scope="col" class="table-bg rounded-start-3">Pet Img</th>
+                    <th scope="col" class="table-bg">Pet Name</th>
+                    <th scope="col" class="table-bg">Pet ID</th>
+                    <th scope="col" class="table-bg">Price</th>
+                    <th scope="col" class="table-bg">Age</th>
+                    <th scope="col" class="table-bg">Gender</th>
+                    <th scope="col" class="table-bg">Breed</th>
+                    <th scope="col" class="table-bg">Source</th>
+                    <th scope="col" class="table-bg">Category</th>
+                    <th scope="col" class="table-bg">Color</th>
+                    <th scope="col" class="table-bg">Vaccination</th>
+                    <th scope="col" class="table-bg rounded-end-3">Action</th>
                 </tr>
             </thead>
             <tbody class=" fw-medium">
                 <?php
                 foreach ($listPetPage as $key => $x) { ?>
                     <tr>
-                        <th style="width: 10%;" class="rounded-start-3"><img src="../<?= $x['img_path'] ?>" alt="" width="100%"></th>
+                        <th style="width: 8%;" class="rounded-start-3"><img src="../<?= $x['img_path'] ?>" alt="" width="100%"></th>
                         <td><?= $x['name'] ?></td>
                         <td><?= $x['id'] ?></td>
                         <td>
@@ -65,8 +70,8 @@
                                 echo "Male";
                             }     ?>
                         </td>
-                        <td></td>
-                        <td><?= getSourceById($x['source'])['name']  ?></td>
+                        <td><?= getBreedById($x['breed_id'])['name'] ?></td>
+                        <td><?= getSourceById($x['source_id'])['name']  ?></td>
                         <td><?= getPetCategoryById($x['category_id'])['name']  ?></td>
                         <td><?= getColorById($x['color_id'])['name']  ?></td>
                         <td><?= $x['vaccination'] ?></td>
@@ -79,6 +84,23 @@
                 <?php } ?>
             </tbody>
         </table>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item <?php if ($currentPage <= 1) echo 'disabled' ?>">
+                    <a class="page-link" href="/admin/?view=<?= $view . "&page=" . $currentPage - 1 ?>">
+                        Previous
+                    </a>
+                </li>
+                <?php for ($i = 1; $i <= $totalPage; $i++) : ?>
+                    <li class="page-item"><a class="page-link" href="/admin/?view=<?= $view . "&page=" . $i ?>"><?= $i ?></a></li>
+                <?php endfor; ?>
+                <li class="page-item <?php if ($currentPage == $totalPage) echo 'disabled' ?>">
+                    <a class="page-link" href="/admin/?view=<?= $view . "&page=" . $currentPage + 1 ?>">
+                        Next
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </div>
 </div>
 
