@@ -12,6 +12,13 @@ function getSourceById($id)
     return pdo_query_one($sql);
 }
 
+function getAllSourceByPage($page, $pageSize)
+{
+    $firstIndex = ($page - 1) * $pageSize;
+    $sql = "SELECT * FROM pet_source LIMIT $firstIndex, $pageSize";
+    return pdo_query($sql);
+}
+
 function createSource($name)
 {
     $sql = "INSERT INTO pet_source (name) VALUES ('$name')";
