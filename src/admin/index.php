@@ -7,7 +7,7 @@
     <link rel="icon" type="image/svg+xml" href="/assets/PetShop.svg" />
     <title>PetShop Admin</title>
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
     <script src="/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="https://kit.fontawesome.com/db7aab17a8.js" crossorigin="anonymous"></script>
 </head>
@@ -24,16 +24,36 @@
     .headerDashboard {
         width: 10%;
     }
+
+
 </style>
 
 <body>
     <?php
-    if (isset($_SESSION['loggedIn']) && $_SESSION['role'] != 1) {
+  
+    // Check if user is not logged in or user is not admin, redirect to home page
+    if (!isset($_SESSION['loggedIn']) || $_SESSION['role'] != 1) {
         header('Location: /');
     }
+    // Take the current page
+    $currentURL = $_SERVER['REQUEST_URI'];
+    $currentPage = isset($_GET['page']) ? $_SERVER['REQUEST_URI'] : 'page=1';
+    // Get the current page number
+    $currentPage = explode('page', $currentPage)[1];
+    $currentPage = explode('=', $currentPage)[1];
+    // Get the view
     $view = isset($_GET['view']) ? $_GET['view'] : 'Dashboard';
     require_once 'views/components/Header.php';
     require_once 'views/components/SideNav.php';
+
+    //code flow:
+    //1. Check if the view is set or not
+    //2. If the view is not set, set the view to Dashboard
+    //3. Based on the view, require page controller to display the content
+    //4. From the controller, require the model to get data
+    //5. Display the data in the view
+    // index -> controller -> model -> view
+
     ?>
     <div class=" vh-100 d-flex justify-content-center align-items-center">
         <?php
