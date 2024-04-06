@@ -17,7 +17,7 @@ function getAllPetByPage($page, $pageSize) {
 }
 
 function createPet($category_id, $name, $color_id, $price, $age, $gender, $source, $breed, $vaccination, $img_path) {
-    $sql = "INSERT INTO pet (category_id, name, color_id, price, age, gender, source, breed_id, vaccination, img_path) VALUES ($category_id, '$name', $color_id, $price, $age, '$gender', '$source','$breed', '$vaccination', '$img_path')";
+    $sql = "INSERT INTO pet (category_id, name, color_id, price, age, gender, source_id, breed_id, vaccination, img_path) VALUES ($category_id, '$name', $color_id, $price, $age, '$gender', '$source','$breed', '$vaccination', '$img_path')";
     pdo_execute($sql);
 }
 ?>
