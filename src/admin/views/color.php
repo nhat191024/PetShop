@@ -19,12 +19,10 @@
         <table class="table table-hover caption-top table-borderless table-striped table-hover text-center align-middle">
             <caption class="fw-bold">List of breed</caption>
             <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Color Name</th>
-                    <th scope="col">Color ID</th>
-                    <th scope="col">Action</th>
-                </tr>
+                <th scope="col" class="table-bg rounded-start-3">#</th>
+                    <th scope="col" class="table-bg">Color Name</th>
+                    <th scope="col" class="table-bg">Color ID</th>
+                    <th scope="col" class="table-bg rounded-end-3">Action</th>
             </thead>
             <tbody class=" fw-medium">
                 <?php
@@ -44,11 +42,19 @@
         </table>
         <nav aria-label="Page navigation example">
             <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item <?php if ($currentPage <= 1) echo 'disabled' ?>">
+                    <a class="page-link" href="/admin/?view=<?= $view . "&page=" . $currentPage - 1 ?>">
+                        Previous
+                    </a>
+                </li>
                 <?php for ($i = 1; $i <= $totalPage; $i++) : ?>
                     <li class="page-item"><a class="page-link" href="/admin/?view=<?= $view . "&page=" . $i ?>"><?= $i ?></a></li>
                 <?php endfor; ?>
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                <li class="page-item <?php if ($currentPage == $totalPage) echo 'disabled' ?>">
+                    <a class="page-link" href="/admin/?view=<?= $view . "&page=" . $currentPage + 1 ?>">
+                        Next
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>
