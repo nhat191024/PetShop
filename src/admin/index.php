@@ -25,7 +25,9 @@
         width: 10%;
     }
 
-
+    .table-bg {
+        background-color: #43cfef !important;
+    }
 </style>
 
 <body>
