@@ -20,4 +20,8 @@ function createProductCategory($productCategoryName) {
     $sql = "INSERT INTO product_category (name) VALUES ('$productCategoryName')";
     pdo_execute($sql);
 }
-?>
+
+function deleteProductCategory($id) {
+    $sql = "DELETE FROM product_category WHERE id = $id";
+    pdo_execute($sql);
+}

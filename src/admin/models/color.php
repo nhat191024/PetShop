@@ -24,3 +24,9 @@ function createColor($name)
     $sql = "INSERT INTO color (name) VALUES ('$name')";
     pdo_execute($sql);
 }
+
+function deleteColor($id)
+{
+    $sql = "DELETE FROM color WHERE id = $id";
+    pdo_execute($sql);
+}

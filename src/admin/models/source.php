@@ -24,3 +24,9 @@ function createSource($name)
     $sql = "INSERT INTO pet_source (name) VALUES ('$name')";
     pdo_execute($sql);
 }
+
+function deleteSource($id)
+{
+    $sql = "DELETE FROM pet_source WHERE id = $id";
+    pdo_execute($sql);
+}

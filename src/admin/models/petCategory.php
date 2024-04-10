@@ -24,3 +24,9 @@ function createPetCategory($petCategoryName)
     $sql = "INSERT INTO pet_category (name) VALUES ('$petCategoryName')";
     pdo_execute($sql);
 }
+
+function deletePetCategory($id)
+{
+    $sql = "DELETE FROM pet_category WHERE id = $id";
+    pdo_execute($sql);
+}

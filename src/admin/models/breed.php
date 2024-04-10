@@ -21,4 +21,8 @@ function createBreed($breedName) {
     $sql = "INSERT INTO breed (name) VALUES ('$breedName')";
     pdo_execute($sql);
 }
-?>
+
+function deleteBreed($id) {
+    $sql = "DELETE FROM breed WHERE id = $id";
+    pdo_execute($sql);
+}
