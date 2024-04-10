@@ -6,24 +6,18 @@
     </div>
     <div class="offcanvas-body ">
         <div class="accordion accordion-flush list-group list-group-flush" id="adminSideBarAccordion">
-            <div class="accordion-item list-group-item list-group-item-action pb-4">
-                <a href="/admin/" class="accordion-header text-decoration-none text-dark fs-5">Dashboard</a>
-            </div>
-            <div class="accordion-item list-group-item list-group-item-action py-4">
-                <a href="/admin/?view=Pets" class="accordion-header text-decoration-none text-dark fs-5">Pets</a>
-            </div>
-            <div class="accordion-item list-group-item list-group-item-action py-4">
-                <a href="/admin/?view=Pets" class="accordion-header text-decoration-none text-dark fs-5">Product</a>
-            </div>
+            <a href="/admin/" class="accordion-item list-group-item list-group-item-action pb-4 text-decoration-none text-dark fs-5">Dashboard</a>
+            <a href="/admin/?view=Pets" class="accordion-item list-group-item list-group-item-action py-4 text-decoration-none text-dark fs-5">Pet</a>
+            <a href="/admin/?view=Products" class="accordion-item list-group-item list-group-item-action py-4 text-decoration-none text-dark fs-5">Product</a>
             <div class="accordion-item py-2">
                 <button class="accordion-header accordion-button collapsed text-dark fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#categoriesCollapse" aria-expanded="false" aria-controls="categoriesCollapse">
-                    Categories
+                    Product Details
                 </button>
                 <div id="categoriesCollapse" class="accordion-collapse collapse" data-bs-parent="#adminSideBarAccordion">
                     <div class="accordion-body">
                         <div class="list-group list-group-flush">
-                            <a href="/admin/?view=Pet_Categories" class="list-group-item list-group-item-action">
-                                Pet Categories
+                            <a href="/admin/?view=Manufacturers" class="list-group-item list-group-item-action">
+                                Product Manufacturer
                             </a>
                             <a href="/admin/?view=Product_Categories" class="list-group-item list-group-item-action">
                                 Product Categories
@@ -47,6 +41,9 @@
                             </a>
                             <a href="/admin/?view=Breeds" class="list-group-item list-group-item-action">
                                 Pet Breeds
+                            </a>
+                            <a href="/admin/?view=Pet_Categories" class="list-group-item list-group-item-action">
+                                Pet Categories
                             </a>
                         </div>
                     </div>
