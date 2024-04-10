@@ -11,7 +11,7 @@ if ($view == "Pets") {
     // number of Items per page
     $pageSize = 5;
     // Total page
-    $totalPage = ceil(count($listProductCategory) / $pageSize);
+    $totalPage = ceil(count($listPet) / $pageSize);
     $listPetPage = getAllPetByPage($page, $pageSize);
     require_once './views/pet.php';
 }
