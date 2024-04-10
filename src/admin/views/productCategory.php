@@ -13,17 +13,13 @@
         </ol>
     </div>
     <div class="admin-main-container bg-white p-2 rounded-3">
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
         <div class="d-flex  justify-content-between px-5 pb-3">
             <form class="d-flex w-25" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-info" type="submit">Search</button>
             </form>
             <button type="button" class="btn btn-outline-info fw-bold m-1 float-end" data-bs-toggle="modal" data-bs-target="#add<?= $view ?>">
-                + Add Product Category
+                + Add <?= $view ?>
             </button>
         </div>
         <table class="table table-hover table-borderless table-striped table-hover text-center align-middle">
@@ -45,7 +41,7 @@
                         <td style="width: 10%;" class="rounded-end-3">
                             <button class="btn"><i class="fa-solid fa-eye" style="color: #74C0FC;"></i></button>
                             <button class="btn"><i class="fa-solid fa-pen-to-square" style="color: #FFD43B;"></i></button>
-                            <form action="./controllers/product/delete.php" method="post">
+                            <form action="./controllers/category/productCategory/delete.php" method="post">
                                 <input type="number" class="d-none" name="id" value="<?= $x['id'] ?>">
                                 <button class="btn" type="submit" name="delete"><i class="fa-solid fa-trash" style="color: #ff0000;"></i></button>
                             </form>
