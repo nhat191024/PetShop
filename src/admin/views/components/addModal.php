@@ -108,6 +108,52 @@
                         </div>
                     </form>
                 <?php break;
+                case "Products": ?>
+                    <form action="./controllers/product/add.php" method="POST" enctype="multipart/form-data">
+                        <div class="modal-body row row-cols-2">
+                            <div class="mb-3 col-12">
+                                <label for="productName" class="form-label">Product Name</label>
+                                <input type="text" name="productName" class="form-control" id="productName" required>
+                            </div>
+                            <div class="mb-3 col">
+                                <label for="productPrice" class="form-label">Product Price</label>
+                                <input type="number" name="productPrice" class="form-control" id="productPrice" required>
+                            </div>
+                            <div class="mb-3 col">
+                                <label for="productManufacturer" class="form-label">Product Manufacturer</label>
+                                <select class="form-select" name="productManufacturer" id="productManufacturer" required>
+                                    <?php foreach (getAllManufacturers() as $x) { ?>
+                                        <option value="<?= $x['id'] ?>"><?= $x['name'] ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                            <div class="mb-3 col">
+                                <label for="productCategory" class="form-label">Pet Category</label>
+                                <select class="form-select" name="productCategory" id="productCategory" required>
+                                    <?php foreach (getProductCategory() as $x) { ?>
+                                        <option value="<?= $x['id'] ?>"><?= $x['name'] ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                            <div class="mb-3 col">
+                                <label for="productQuantity" class="form-label">Product Quantity</label>
+                                <input type="number" name="productQuantity" class="form-control" id="productQuantity" required>
+                            </div>
+                            <div class="mb-3 col-12">
+                                <label for="productDescription" class="form-label">Product Description</label>
+                                <textarea class="form-control" type="text" name="productDescription" id="productDescription" style="height: 100px" required></textarea>
+                            </div>
+                            <div class="mb-3 col-12">
+                                <label for="productImg" class="form-label">Product image</label>
+                                <input class="form-control" type="file" name="productImg" id="productImg" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" name="create<?= $view ?>">Create</button>
+                        </div>
+                    </form>
+                <?php break;
                 case "Sources": ?>
                     <form action="./controllers/source/add.php" method="POST">
                         <div class="modal-body">
@@ -153,8 +199,22 @@
                         </div>
                     </form>
                 <?php break;
-                case "": ?>
-            <?php } ?>
+                case "Manufacturers": ?>
+                    <form action="./controllers/manufacturer/add.php" method="POST">
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="manufacturerName" class="form-label">Manufacturer Name</label>
+                                <input type="text" name="manufacturerName" class="form-control" id="manufacturerName" required>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" name="create<?= $view ?>">Create</button>
+                        </div>
+                    </form>
+            <?php break;
+            } ?>
 
         </div>
     </div>
