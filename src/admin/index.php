@@ -82,7 +82,10 @@
                 require_once 'controllers/pets/list.php';
                 break;
             case 'Products':
-                require_once 'controllers/products/list.php';
+                require_once 'controllers/product/list.php';
+                break;
+            case 'Manufacturers':
+                require_once 'controllers/manufacturer/list.php';
                 break;
             default:
                 require_once 'views/dashboard.php';
