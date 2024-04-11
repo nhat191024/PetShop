@@ -28,8 +28,6 @@
         session_destroy();
     }
     $_SESSION['LAST_ACTIVITY'] = time();
-    require_once "./controllers/category/petCategory/list.php";
-    require_once "./controllers/category/productCategory/list.php";
     require_once "./views/components/NavBar.php";
 
     $loginFailed = isset($_GET['loginFailed']) ? "show" : '';
@@ -38,8 +36,6 @@
     $details = isset($_GET['details']) ? $_GET['details'] : '';
     switch ($view) {
         case '/':
-            require_once "./controllers/pets/list.php";
-            require_once "./controllers/category/petCategory/list.php";
             require_once "./controllers/home.php";
             break;
         case 'detail':
