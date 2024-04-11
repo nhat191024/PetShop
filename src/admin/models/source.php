@@ -25,6 +25,12 @@ function createSource($name)
     pdo_execute($sql);
 }
 
+function updateSource($id, $name)
+{
+    $sql = "UPDATE pet_source SET name = '$name' WHERE id = $id";
+    pdo_execute($sql);
+}
+
 function deleteSource($id)
 {
     $sql = "DELETE FROM pet_source WHERE id = $id";

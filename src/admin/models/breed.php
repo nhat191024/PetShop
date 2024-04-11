@@ -22,6 +22,11 @@ function createBreed($breedName) {
     pdo_execute($sql);
 }
 
+function updateBreed($id, $breedName) {
+    $sql = "UPDATE breed SET name = '$breedName' WHERE id = $id";
+    pdo_execute($sql);
+}
+
 function deleteBreed($id) {
     $sql = "DELETE FROM breed WHERE id = $id";
     pdo_execute($sql);

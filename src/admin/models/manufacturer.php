@@ -22,6 +22,11 @@ function createManufacturer($name) {
     pdo_execute($sql);
 }
 
+function updateManufacturer($id, $name) {
+    $sql = "UPDATE manufacturer SET name = '$name' WHERE id = $id";
+    pdo_execute($sql);
+}
+
 function deleteManufacturer($id) {
     $sql = "DELETE FROM manufacturer WHERE id = $id";
     pdo_execute($sql);

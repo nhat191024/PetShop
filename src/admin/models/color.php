@@ -25,6 +25,12 @@ function createColor($name)
     pdo_execute($sql);
 }
 
+function updateColor($id, $name)
+{
+    $sql = "UPDATE color SET name = '$name' WHERE id = $id";
+    pdo_execute($sql);
+}
+
 function deleteColor($id)
 {
     $sql = "DELETE FROM color WHERE id = $id";

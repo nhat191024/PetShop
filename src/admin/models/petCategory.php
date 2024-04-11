@@ -25,6 +25,12 @@ function createPetCategory($petCategoryName)
     pdo_execute($sql);
 }
 
+function updatePetCategory($id, $name)
+{
+    $sql = "UPDATE pet_category SET name = '$name' WHERE id = $id";
+    pdo_execute($sql);
+}
+
 function deletePetCategory($id)
 {
     $sql = "DELETE FROM pet_category WHERE id = $id";
