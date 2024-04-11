@@ -43,6 +43,8 @@
     // Get the current page number
     $currentPage = explode('page', $currentPage)[1];
     $currentPage = explode('=', $currentPage)[1];
+    // Get edit id
+    $edit = isset($_GET['edit']) ? $_GET['edit'] : '';
     // Get the view
     $view = isset($_GET['view']) ? $_GET['view'] : 'Dashboard';
     require_once 'views/components/Header.php';
@@ -64,28 +66,60 @@
                 require_once 'views/dashboard.php';
                 break;
             case 'Pet_Categories':
-                require_once 'controllers/category/petCategory/list.php';
+                if ($edit == '') {
+                    require_once 'controllers/category/petCategory/list.php';
+                } else {
+                    require_once 'controllers/category/petCategory/edit.php';
+                }
                 break;
             case 'Product_Categories':
-                require_once 'controllers/category/productCategory/list.php';
+                if ($edit == '') {
+                    require_once 'controllers/category/productCategory/list.php';
+                } else {
+                    require_once 'controllers/category/productCategory/edit.php';
+                }
                 break;
             case 'Colors':
-                require_once 'controllers/color/list.php';
+                if ($edit == '') {
+                    require_once 'controllers/color/list.php';
+                } else {
+                    require_once 'controllers/color/edit.php';
+                }
                 break;
             case 'Sources':
-                require_once 'controllers/source/list.php';
+                if ($edit == '') {
+                    require_once 'controllers/source/list.php';
+                } else {
+                    require_once 'controllers/source/edit.php';
+                }
                 break;
             case 'Breeds':
-                require_once 'controllers/breed/list.php';
+                if ($edit == '') {
+                    require_once 'controllers/breed/list.php';
+                } else {
+                    require_once 'controllers/breed/edit.php';
+                }
                 break;
             case 'Pets':
-                require_once 'controllers/pets/list.php';
+                if ($edit == '') {
+                    require_once 'controllers/pets/list.php';
+                } else {
+                    require_once 'controllers/pets/edit.php';
+                }
                 break;
             case 'Products':
-                require_once 'controllers/product/list.php';
+                if ($edit == '') {
+                    require_once 'controllers/product/list.php';
+                } else {
+                    require_once 'controllers/product/edit.php';
+                }
                 break;
             case 'Manufacturers':
-                require_once 'controllers/manufacturer/list.php';
+                if ($edit == '') {
+                    require_once 'controllers/manufacturer/list.php';
+                } else {
+                    require_once 'controllers/manufacturer/edit.php';
+                }
                 break;
             default:
                 require_once 'views/dashboard.php';
