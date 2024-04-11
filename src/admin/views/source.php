@@ -13,7 +13,7 @@
         </ol>
     </div>
     <div class="admin-main-container bg-white p-2 rounded-3">
-    <div class="d-flex  justify-content-between px-5 pb-3">
+        <div class="d-flex  justify-content-between px-5 pb-3">
             <form class="d-flex w-25" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-info" type="submit">Search</button>
@@ -40,7 +40,7 @@
                         <td><?= $x['id'] ?></td>
                         <td style="width: 10%;" class="rounded-end-3">
                             <button class="btn"><i class="fa-solid fa-eye" style="color: #74C0FC;"></i></button>
-                            <button class="btn"><i class="fa-solid fa-pen-to-square" style="color: #FFD43B;"></i></button>
+                            <a href="/admin/?view=Sources&edit=<?= $x['id'] ?>" class="btn"><i class="fa-solid fa-pen-to-square" style="color: #FFD43B;"></i></a>
                             <form action="./controllers/source/delete.php" method="post">
                                 <input type="number" class="d-none" name="id" value="<?= $x['id'] ?>">
                                 <button class="btn" type="submit" name="delete"><i class="fa-solid fa-trash" style="color: #ff0000;"></i></button>
