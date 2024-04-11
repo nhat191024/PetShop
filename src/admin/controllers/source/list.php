@@ -7,7 +7,7 @@ if ($view == "Sources") {
     // number of Items per page
     $pageSize = 8;
     // Total page
-    $totalPage = ceil(count($listProductCategory) / $pageSize);
+    $totalPage = ceil(count($listSource) / $pageSize);
     $listSourcePage = getAllSourceByPage($page, $pageSize);
     require_once './views/source.php';
 }
