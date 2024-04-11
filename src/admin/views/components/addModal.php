@@ -128,7 +128,7 @@
                                 </select>
                             </div>
                             <div class="mb-3 col">
-                                <label for="productCategory" class="form-label">Pet Category</label>
+                                <label for="productCategory" class="form-label">Product Category</label>
                                 <select class="form-select" name="productCategory" id="productCategory" required>
                                     <?php foreach (getProductCategory() as $x) { ?>
                                         <option value="<?= $x['id'] ?>"><?= $x['name'] ?></option>
