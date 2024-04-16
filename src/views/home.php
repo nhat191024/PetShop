@@ -12,7 +12,7 @@
         <?php foreach ($listPet as $x) { ?>
             <div class="card p-2 bg-white" style="width: 18rem;">
                 <a href="/?view=detail&details=<?= $x['id'] ?>" class="text-decoration-none">
-                    <div class="card-img-top rounded-2 text-center d-flex flex-column justify-content-center" style="height: 250px">
+                    <div class="card-img-top rounded-2 text-center d-flex flex-column justify-content-center align-items-center " style="height: 250px">
                         <img src="<?= $x['img_path'] ?>" class="" style="width: 200px">
                     </div>
                     <div class="card-body">
@@ -38,14 +38,14 @@
 <div class="container mt-5">
     <h2 class="text-center text-info fw-bold">OUR PRODUCT</h2>
     <div class="row row-cols-4 gap-3 justify-content-center">
-        <?php foreach ($listPet as $x) { ?>
+        <?php foreach ($listProduct as $x) { ?>
             <div class="card p-2 bg-white" style="width: 18rem;">
                 <a href="/?view=detail&details=<?= $x['id'] ?>" class="text-decoration-none">
-                    <div class="card-img-top rounded-2 text-center d-flex flex-column justify-content-center" style="height: 250px">
+                    <div class="card-img-top rounded-2 text-center d-flex flex-column justify-content-center align-items-center " style="height: 250px">
                         <img src="<?= $x['img_path'] ?>" class="" style="width: 200px">
                     </div>
                     <div class="card-body">
-                        <h6 class="card-subtitle text-body-secondary"><?= getSourceById($x['source_id'])['name']  ?> <?= getPetCategoryById($x['category_id'])['name']  ?></h6>
+                        <h6 class="card-subtitle text-body-secondary"><?= getManufacturerById($x['manufacturer_id'])['name']  ?> <?= getProductCategoryById($x['category_id'])['name']  ?></h6>
                         <h5 class="card-title text-info"><?= $x['name'] ?></h5>
                         <h6 class="mt-3 d-flex justify-content-between m-0">
                             <span class=" text-info">
