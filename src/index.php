@@ -28,21 +28,56 @@
         session_destroy();
     }
     $_SESSION['LAST_ACTIVITY'] = time();
-    require_once "./views/components/NavBar.php";
-
+    require_once "./controllers/category/petCategory/list.php";
+    require_once "./controllers/category/productCategory/list.php";
+    require_once "./controllers/cart/list.php";
     $loginFailed = isset($_GET['loginFailed']) ? "show" : '';
+    $notLogin = isset($_GET['notLogin']) ? "show" : '';
+    $addSuccess = isset($_GET['addSuccess']) ? "show" : '';
     $userRole = isset($_COOKIE['role']) ? $_COOKIE['role'] : '';
     $view = isset($_GET['view']) ? $_GET['view'] : '/';
     $details = isset($_GET['details']) ? $_GET['details'] : '';
+    $category = isset($_GET['category']) ? $_GET['category'] : '';
+
+    if ($view != 'payment') {
+        require_once "./views/components/NavBar.php";
+    }
+
     switch ($view) {
         case '/':
             require_once "./controllers/home.php";
             break;
-        case 'detail':
+        case 'detailPet':
             if ($details != '') {
                 require_once "./controllers/pets/details.php";
             }
             break;
+        case 'detailProduct':
+            if ($details != '') {
+                require_once "./models/comment.php";
+                require_once "./models/account.php";
+                require_once "./controllers/product/details.php";
+            }
+            break;
+        case 'petCategory':
+            if ($category != '') {
+                require_once "./controllers/pets/category.php";
+            }
+            break;
+        case 'productCategory':
+            if ($category != '') {
+                require_once "./controllers/product/category.php";
+            }
+            break;
+        case 'payment':
+            require_once "./controllers/payment.php";
+            break;
+    }
+    if ($view != 'payment') {
+        require_once "./views/components/SignUpForm.php";
+        require_once "./views/components/LoginForm.php";
+        require_once "./views/components/Footer.php";
+        require_once "./views/components/toasts.php";
     }
     ?>
     <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
