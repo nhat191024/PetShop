@@ -11,7 +11,7 @@
     <div class="row row-cols-4 gap-3 justify-content-center">
         <?php foreach ($listPet as $x) { ?>
             <div class="card p-2 bg-white" style="width: 18rem;">
-                <a href="/?view=detail&details=<?= $x['id'] ?>" class="text-decoration-none">
+                <a href="/?view=detailPet&details=<?= $x['id'] ?>" class="text-decoration-none">
                     <div class="card-img-top rounded-2 text-center d-flex flex-column justify-content-center align-items-center " style="height: 250px">
                         <img src="<?= $x['img_path'] ?>" class="" style="width: 200px">
                     </div>
@@ -40,7 +40,7 @@
     <div class="row row-cols-4 gap-3 justify-content-center">
         <?php foreach ($listProduct as $x) { ?>
             <div class="card p-2 bg-white" style="width: 18rem;">
-                <a href="/?view=detail&details=<?= $x['id'] ?>" class="text-decoration-none">
+                <a href="/?view=detailProduct&details=<?= $x['id'] ?>" class="text-decoration-none">
                     <div class="card-img-top rounded-2 text-center d-flex flex-column justify-content-center align-items-center " style="height: 250px">
                         <img src="<?= $x['img_path'] ?>" class="" style="width: 200px">
                     </div>
@@ -64,4 +64,3 @@
         <?php } ?>
     </div>
 </div>
-<?php require_once "./views/components/toasts.php"; ?>
