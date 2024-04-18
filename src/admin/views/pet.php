@@ -29,7 +29,7 @@
                 + Add <?= $view ?>
             </button>
         </div>
-        <table class="table table-hover caption-top table-borderless table-striped table-hover text-center align-middle">
+        <table class="table caption-top table-borderless table-striped table-hover text-center align-middle">
             <thead>
                 <tr>
                     <th scope="col" class="table-bg rounded-start-3">Pet Img</th>
