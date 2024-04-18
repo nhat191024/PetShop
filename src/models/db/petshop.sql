@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1:3306
--- Thời gian đã tạo: Th4 11, 2024 lúc 04:26 AM
+-- Thời gian đã tạo: Th4 18, 2024 lúc 05:18 PM
 -- Phiên bản máy phục vụ: 8.0.31
 -- Phiên bản PHP: 8.0.26
 
@@ -83,14 +83,22 @@ INSERT INTO `breed` (`id`, `name`, `create_at`, `update_at`) VALUES
 
 DROP TABLE IF EXISTS `cart`;
 CREATE TABLE IF NOT EXISTS `cart` (
-  `Id` int NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `product_id` int NOT NULL,
   `user_id` int NOT NULL,
   `quantity` int NOT NULL,
   `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`Id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `cart`
+--
+
+INSERT INTO `cart` (`id`, `product_id`, `user_id`, `quantity`, `create_at`, `update_at`) VALUES
+(9, 3, 1, 6, '2024-04-18 17:16:05', '2024-04-18 17:16:05'),
+(7, 4, 1, 3, '2024-04-18 17:14:02', '2024-04-18 17:14:02');
 
 -- --------------------------------------------------------
 
@@ -119,6 +127,34 @@ INSERT INTO `color` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `comment`
+--
+
+DROP TABLE IF EXISTS `comment`;
+CREATE TABLE IF NOT EXISTS `comment` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `product_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `content` text COLLATE utf8mb3_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `comment`
+--
+
+INSERT INTO `comment` (`id`, `product_id`, `user_id`, `content`, `created_at`, `updated_at`) VALUES
+(1, 3, 1, 'aawdawdawd', '2024-04-17 20:53:46', '2024-04-17 20:53:46'),
+(2, 3, 1, 'adawdawdaw', '2024-04-17 20:54:09', '2024-04-17 20:54:09'),
+(3, 3, 1, 'awdawdad', '2024-04-17 20:54:42', '2024-04-17 20:54:42'),
+(4, 3, 1, 'Sản Phẩm này vjp phết', '2024-04-17 21:11:41', '2024-04-17 21:11:41'),
+(5, 3, 1, 'adsada', '2024-04-18 15:20:25', '2024-04-18 15:20:25');
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `manufacturer`
 --
 
@@ -129,7 +165,7 @@ CREATE TABLE IF NOT EXISTS `manufacturer` (
   `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `manufacturer`
@@ -137,7 +173,8 @@ CREATE TABLE IF NOT EXISTS `manufacturer` (
 
 INSERT INTO `manufacturer` (`id`, `name`, `create_at`, `update_at`) VALUES
 (1, 'Mars Petcare Inc.', '2024-04-06 03:05:39', '2024-04-11 03:35:45'),
-(2, 'Pedigree Petfoods', '2024-04-10 13:46:38', '2024-04-10 13:46:38');
+(2, 'Pedigree Petfoods', '2024-04-10 13:46:38', '2024-04-10 13:46:38'),
+(5, 'Smartheart', '2024-04-17 22:32:58', '2024-04-17 22:32:58');
 
 -- --------------------------------------------------------
 
@@ -265,14 +302,15 @@ CREATE TABLE IF NOT EXISTS `product` (
   `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `product`
 --
 
 INSERT INTO `product` (`id`, `name`, `price`, `manufacturer_id`, `category_id`, `quantity`, `description`, `img_path`, `create_at`, `update_at`) VALUES
-(3, 'Pedigree Petfood', 142141, 2, 1, 124, 'sIDUGfiaklsUg9owafhgowpifhwfhkSLJH', 'upload/PRODUCT-6617577c3aa669.45068794.png', '2024-04-11 03:09:41', '2024-04-11 03:22:50');
+(3, 'Pedigree Petfood', 142141, 2, 1, 124, 'sIDUGfiaklsUg9owafhgowpifhwfhkSLJH', 'upload/PRODUCT-6617577c3aa669.45068794.png', '2024-04-11 03:09:41', '2024-04-11 03:22:50'),
+(4, 'Roast Beed Flavor', 213143, 5, 1, 132, 'lsk;dhfjklszjAhfbklsaejfhkla', 'upload/PRODUCT-66204e46ee7215.83916857.png', '2024-04-17 22:33:42', '2024-04-18 17:16:54');
 
 -- --------------------------------------------------------
 
