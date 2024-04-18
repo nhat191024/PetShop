@@ -12,8 +12,22 @@ function getAllUserCart($id)
     return pdo_query($sql);
 }
 
-function createSchedule($user, $product, $quantity)
-{
-    $sql = "INSERT INTO pet_schedule (pet_id, user_id, data) VALUES ('$product', '$user', '$quantity')";
+function createCart($product_id, $user_id, $quantity){
+    $sql = "INSERT INTO cart (product_id, user_id, quantity) VALUES ($product_id, $user_id, $quantity)";
+    pdo_execute($sql);
+}
+
+function updateCart($product_id, $user_id, $quantity, $id){
+    $sql = "UPDATE cart SET product_id = $product_id, user_id = $user_id, quantity = $quantity WHERE id = $id";
+    pdo_execute($sql);
+}
+
+function updateCartQuantity($id, $quantity){
+    $sql = "UPDATE cart SET quantity = $quantity WHERE id = $id";
+    pdo_execute($sql);
+}
+
+function deleteCartItem($id){
+    $sql = "DELETE FROM cart WHERE id = $id";
     pdo_execute($sql);
 }
