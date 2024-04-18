@@ -1,4 +1,11 @@
 <div class="vh-100 container mt-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="?view=petCategory&category=<?= $pet['category_id'] ?>"><?= getPetCategoryById($pet['category_id'])['name']  ?></a></li>
+            <li class="breadcrumb-item active" aria-current="page"><?= $pet['name'] ?></li>
+        </ol>
+    </nav>
     <div class="w-100 h-50 p-4 bg-white d-flex justify-content-start gap-3 rounded-2">
         <div class="w-50 h-50">
             <img src="<?= $pet['img_path'] ?>" class="img-fluid rounded-2 ">
