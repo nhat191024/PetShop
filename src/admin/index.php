@@ -46,10 +46,10 @@
     // Get edit id
     $edit = isset($_GET['edit']) ? $_GET['edit'] : '';
     // Get the view
-    $view = isset($_GET['view']) ? $_GET['view'] : 'Dashboard';
+    $view = isset($_GET['view']) ? $_GET['view'] : 'Pets';
     require_once 'views/components/Header.php';
     require_once 'views/components/SideNav.php';
-
+    
     //code flow:
     //1. Check if the view is set or not
     //2. If the view is not set, set the view to Dashboard
@@ -62,9 +62,6 @@
     <div class=" vh-100 d-flex justify-content-center align-items-center">
         <?php
         switch ($view) {
-            case 'Dashboard':
-                require_once 'views/dashboard.php';
-                break;
             case 'Pet_Categories':
                 if ($edit == '') {
                     require_once 'controllers/category/petCategory/list.php';
@@ -122,7 +119,7 @@
                 }
                 break;
             default:
-                require_once 'views/dashboard.php';
+                require_once 'controllers/pets/list.php';
                 break;
         }
         ?>
