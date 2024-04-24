@@ -50,11 +50,11 @@
                     </form>
                 </div>
             </div>
-            <button class="btn btn-info text-dark fw-medium w-100 mt-2">
+            <a class="btn btn-info text-dark fw-medium w-100 mt-2" href="/?view=payment&id=<?= $product['id'] ?>">
                 <span>Buy now</span>
                 <br>
                 <span>Delivery or receiving at the store</span>
-            </button>
+            </a>
             <div class="text-center">
                 <span>Call to buy</span>
                 <span class="text-info">090xxxxxx</span>
