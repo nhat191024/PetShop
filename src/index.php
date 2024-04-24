@@ -31,6 +31,7 @@
     require_once "./controllers/category/petCategory/list.php";
     require_once "./controllers/category/productCategory/list.php";
     require_once "./controllers/cart/list.php";
+    require_once "./controllers/bill/list.php";
     $loginFailed = isset($_GET['loginFailed']) ? "show" : '';
     $notLogin = isset($_GET['notLogin']) ? "show" : '';
     $addSuccess = isset($_GET['addSuccess']) ? "show" : '';
