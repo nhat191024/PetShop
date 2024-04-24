@@ -9,7 +9,7 @@
             <div class="modal-body">
                 <?php if (!isset($_SESSION['loggedIn'])) : ?>
                     <h4 class="text-center my-3">Please login to view your cart</h1>
-                    <?php elseif (empty($cart)) : ?>
+                    <?php elseif (empty($listCart)) : ?>
                         <h4 class="text-center my-3">Your cart is empty</h1>
                         <?php else : ?>
                             <table class="table table-borderless text-center align-middle">
@@ -24,8 +24,8 @@
                                 </thead>
                                 <tbody>
                                     <div>
-                                        <input type="hidden" name="cartTotal" value="<?= count($cart) ?>">
-                                        <?php foreach ($cart as $item => $items) :
+                                        <input type="hidden" name="cartTotal" value="<?= count($listCart) ?>">
+                                        <?php foreach ($listCart as $item => $items) :
                                             $product = getProductById($items['product_id']);
                                         ?>
                                             <tr>
@@ -55,8 +55,8 @@
                         <?php endif; ?>
             </div>
             <div class="modal-footer">
-                <button type="submit" name="cartChange" class="btn btn-primary" <?php if (empty($cart)) echo 'disabled' ?>>Save changes</button>
-                <a href="/?view=payment" type="button" class="btn btn-success <?php if (empty($cart)) echo 'disabled' ?>" >confirmation and payment</a>
+                <button type="submit" name="cartChange" class="btn btn-primary" <?php if (empty($listCart)) echo 'disabled' ?>>Save changes</button>
+                <a href="/?view=payment" type="button" class="btn btn-success <?php if (empty($listCart)) echo 'disabled' ?>" >confirmation and payment</a>
             </div>
         </form>
     </div>

@@ -77,7 +77,7 @@
                     <button type="button" class="btn btn-info bg-gradient border border-2 border-black position-relative" data-bs-toggle="modal" data-bs-target="#CartModal">
                         <i class="fa-solid fa-cart-shopping" style="color: #000000;"></i>
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
-                            <?= $cart ? count($cart) : '0'  ?>+
+                            <?= $listCart ? count($listCart) : '0'  ?>+
                         </span>
                     </button>
                     <div class="dropstart">
