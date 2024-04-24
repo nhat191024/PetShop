@@ -8,7 +8,7 @@ function getAllCart()
 
 function getAllUserCart($id)
 {
-    $sql = "SELECT * FROM cart WHERE user_id = $id";
+    $sql = "SELECT * FROM cart WHERE user_id = $id AND bill_id IS NULL";
     return pdo_query($sql);
 }
 
@@ -22,8 +22,13 @@ function updateCart($product_id, $user_id, $quantity, $id){
     pdo_execute($sql);
 }
 
+function updateCartBill($id, $bill_id){
+    $sql = "UPDATE cart SET bill_id = $bill_id WHERE id = $id";
+    pdo_execute($sql);
+}
+
 function updateCartQuantity($id, $quantity){
-    $sql = "UPDATE cart SET quantity = $quantity WHERE id = $id";
+    $sql = "UPDATE cart SET quantity = $quantity WHERE id = $id AND bill_id IS NULL";
     pdo_execute($sql);
 }
 
