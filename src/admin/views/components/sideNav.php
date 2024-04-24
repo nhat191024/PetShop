@@ -7,6 +7,7 @@
     <div class="offcanvas-body ">
         <div class="accordion accordion-flush list-group list-group-flush" id="adminSideBarAccordion">
             <a href="/" class="accordion-item list-group-item list-group-item-action pb-4 text-decoration-none text-dark fs-5">Home</a>
+            <a href="/admin/?view=Bills" class="accordion-item list-group-item list-group-item-action py-4 text-decoration-none text-dark fs-5">Bill</a>
             <a href="/admin/?view=Pets" class="accordion-item list-group-item list-group-item-action py-4 text-decoration-none text-dark fs-5">Pet</a>
             <a href="/admin/?view=Products" class="accordion-item list-group-item list-group-item-action py-4 text-decoration-none text-dark fs-5">Product</a>
             <div class="accordion-item py-2">
