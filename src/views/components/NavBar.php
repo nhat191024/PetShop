@@ -48,6 +48,14 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
+                                <li>
+                                    <a type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#bill">
+                                        Bill Status
+                                    </a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
                                 <?php if ($_SESSION['role'] == '1') : ?>
                                     <li><a class="dropdown-item" href="/admin">Admin Dashboard</a></li>
                                     <li>
