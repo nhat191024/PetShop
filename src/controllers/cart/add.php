@@ -8,9 +8,9 @@ if (!isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
     $quantity = $_POST['quantity'];
 
-    $cart = getAllCart();
+    $cart = getAllUserCart($_SESSION['user_id']);
     foreach ($cart as $item) {
-        if ($item['product_id'] == $product_id && $item['user_id'] == $user_id) {
+        if ($item['product_id'] == $product_id) {
             $quantity += $item['quantity'];
             deleteCartItem($item['id']);
         }
