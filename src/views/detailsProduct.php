@@ -49,7 +49,6 @@
                         <button type="submit" name="add-btn" class="btn text-info btn-outline-info border border-2 border-info">Add To Cart</button>
                     </form>
                 </div>
-                <!-- <button class="btn text-info border border-2 border-info w-75">Add To Cart</button> -->
             </div>
             <button class="btn btn-info text-dark fw-medium w-100 mt-2">
                 <span>Buy now</span>
