@@ -5,6 +5,7 @@ if (!isset($_SESSION['user_id'])) {
 } else if (isset($_POST['bill'])) {
     require_once "../../models/bill.php";
     require_once "../../models/cart.php";
+    require_once "../../models/product.php";
 
     $userId = $_POST['userId'];
     $name = $_POST['name'];
@@ -25,6 +26,9 @@ if (!isset($_SESSION['user_id'])) {
     $cart = getAllUserCart($userId);
     foreach ($cart as $item) {
         updateCartBill($item['id'], $billId);
+
+        $product = getProductById($item['product_id']);
+        updateProductQuantity($product['id'], $product['quantity'] - $item['quantity']);
     }
     header('location: /?success=true');
 }
