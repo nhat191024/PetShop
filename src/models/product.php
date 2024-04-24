@@ -18,3 +18,9 @@ function getAllProductByCategoryId($id)
     $sql = "SELECT * FROM product WHERE category_id = $id";
     return pdo_query($sql);
 }
+
+function updateProductQuantity($id, $quantity)
+{
+    $sql = "UPDATE product SET quantity = $quantity WHERE id = $id";
+    pdo_execute($sql);
+}
