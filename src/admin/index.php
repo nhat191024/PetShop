@@ -62,6 +62,9 @@
     <div class=" vh-100 d-flex justify-content-center align-items-center">
         <?php
         switch ($view) {
+            case 'Bills':
+                require_once 'controllers/bill/list.php';
+                break;
             case 'Pet_Categories':
                 if ($edit == '') {
                     require_once 'controllers/category/petCategory/list.php';
