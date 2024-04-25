@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="style.css">
     <script src="/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="https://kit.fontawesome.com/db7aab17a8.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/b3fe21bea5.js" crossorigin="anonymous"></script>
 </head>
 <style>
     body::-webkit-scrollbar {
@@ -47,9 +47,11 @@
     $edit = isset($_GET['edit']) ? $_GET['edit'] : '';
     // Get the view
     $view = isset($_GET['view']) ? $_GET['view'] : 'Pets';
+    // Get the comment
+    $comment = isset($_GET['comment']) ? $_GET['comment'] : '';
     require_once 'views/components/Header.php';
     require_once 'views/components/SideNav.php';
-    
+
     //code flow:
     //1. Check if the view is set or not
     //2. If the view is not set, set the view to Dashboard
@@ -108,10 +110,12 @@
                 }
                 break;
             case 'Products':
-                if ($edit == '') {
-                    require_once 'controllers/product/list.php';
-                } else {
+                if ($edit != '') {
                     require_once 'controllers/product/edit.php';
+                } else if ($comment != '') {
+                    require_once 'controllers/product/comment.php';
+                } else {
+                    require_once 'controllers/product/list.php';
                 }
                 break;
             case 'Manufacturers':
