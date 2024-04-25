@@ -71,7 +71,7 @@
     $numberOfComments == 0 ? print("<p>No comment</p>") : print("<p>$numberOfComments Comment</p>");
     foreach ($comments as $comment) { ?>
         <div class="d-flex gap-3 mt-3">
-            <img src="../assets/avatar.png" class="rounded-circle" width="50px" height="50px">
+            <img src="<?= getAccountById($comment['user_id'])['avatar']  ?>" class="rounded-circle" width="50px" height="50px">
             <div class="w-100">
                 <h6><?= getAccountById($comment['user_id'])['username'] ?></h6>
                 <p><?= $comment['content'] ?></p>
