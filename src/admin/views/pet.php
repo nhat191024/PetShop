@@ -50,7 +50,7 @@
                 <?php
                 foreach ($listPetPage as $key => $x) { ?>
                     <tr>
-                        <th style="width: 8%;" class="rounded-start-3"><img src="../<?= $x['img_path'] ?>" alt="" width="100%"></th>
+                        <td style="width: 8%;" class="rounded-start-3"><img src="../<?= $x['img_path'] ?>" alt="" width="100%"></td>
                         <td><?= $x['name'] ?></td>
                         <td><?= $x['id'] ?></td>
                         <td>
