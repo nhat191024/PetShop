@@ -59,7 +59,7 @@
                     $d = strrev($c);
                     echo "<button class='btn text-info border border-2 border-info w-25' disabled > $d ₫</button>";
                     ?>
-                    <button class="btn text-info border border-2 border-info w-75">Schedule a meet with pet</button>
+                    <button class="btn text-info border border-2 border-info w-75" data-bs-toggle="modal" data-bs-target="#meet">Schedule a meet with pet</button>
                 </div>
                 <button class="btn btn-info text-dark fw-medium w-100 mt-2">
                     <span>Buy now</span>
@@ -72,6 +72,45 @@
                     <span>(8am - 10pm)</span>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="meet" tabindex="-1" aria-labelledby="meetLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="meetLabel">Schedule a meet with pet</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <?php if (isset($_SESSION['user_id'])) : ?>
+                <form action="/controllers/meet/add.php" method="POST">
+                    <div class="modal-body">
+                        <input type="hidden" value="<?= $pet['id'] ?>" name="petId">
+                        <input type="hidden" value="<?= $_SESSION['user_id'] ?>" name="userId">
+                        <label class="form-label">Date Time</label>
+                        <div class="input-group mb-3">
+                            <input type="time" aria-label="time" class="form-control" name="time">
+                            <input type="date" aria-label="date" class="form-control" name="date">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" name="meet">Schedule</button>
+                    </div>
+                </form>
+            <?php else : ?>
+                <div class="modal-body">
+                    <h5 class="text-center">Please login to schedule a meet with pet</h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#LoginModal">
+                        SignIn
+                    </a>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </div>
