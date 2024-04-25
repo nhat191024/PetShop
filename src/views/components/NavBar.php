@@ -63,6 +63,12 @@
                                     </li>
                                 <?php endif; ?>
                                 <li>
+                                    <a class="dropdown-item" href="/?view=settings">Account Setting</a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
                                     <a class="dropdown-item" href="/controllers/logout.php">Logout</a>
                                 </li>
                             <?php } else { ?>
