@@ -18,6 +18,7 @@
                                     <th>Total</th>
                                     <th>Address</th>
                                     <th>Status</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -36,15 +37,24 @@
                                         </td>
                                         <td><?= $item['address'] ?></td>
                                         <td>
-                                            <?php 
-                                            if($item['status'] == 1){
+                                            <?php
+                                            if ($item['status'] == 1) {
                                                 echo "Pending";
-                                            }else if($item['status'] == 2){
+                                            } else if ($item['status'] == 2) {
                                                 echo "Shipping";
-                                            }else{
+                                            } else if ($item['status'] == 3) {
                                                 echo "Done";
+                                            } else {
+                                                echo "Canceled";
                                             }
                                             ?>
+                                        </td>
+                                        <td>
+                                            <?php if ($item['status'] == 2 || $item['status'] == 3 || $item['status'] == 4) : ?>
+                                                <button disabled class="btn">Not available</button>
+                                            <?php else : ?>
+                                                <a class="btn" href="../../controllers/bill/delete.php?id=<?= $item['id'] ?>"><i class="fa-solid fa-trash" style="color: #ff0000;"></i></a>
+                                            <?php endif; ?>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
