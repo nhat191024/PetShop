@@ -6,7 +6,7 @@
                 <h1 class="modal-title fs-5" id="LoginModalLabel">Login To PetShop</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="/controllers/login.php" method="POST" class="needs-validation">
+            <form action="/controllers/account/login.php" method="POST" class="needs-validation">
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="username" class="form-label">Username</label>

@@ -6,7 +6,7 @@
                 <h1 class="modal-title fs-5" id="SignUpModalLabel">Signup To PetShop</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="/controllers/signup.php" method="POST" class="needs-validation">
+            <form action="/controllers/account/signup.php" method="POST" class="needs-validation">
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
