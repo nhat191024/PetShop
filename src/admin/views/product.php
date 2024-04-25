@@ -40,6 +40,7 @@
                     <th scope="col" class="table-bg">Category</th>
                     <th scope="col" class="table-bg">Quantity</th>
                     <th scope="col" class="table-bg">Description</th>
+                    <th scope="col" class="table-bg">Comment</th>
                     <th scope="col" class="table-bg rounded-end-3">Action</th>
                 </tr>
             </thead>
@@ -65,13 +66,16 @@
                         </td>
                         <td><?= $x['quantity'] ?></td>
                         <td class="text-truncate" style="max-width: 200px;"><?= $x['description'] ?></td>
+                        <td>
+                            <?= count(getCommentBuyProductId($x['id'])) ?>
+                        </td>
                         <td style="width: 10%;" class="rounded-end-3">
-                            <button class="btn"><i class="fa-solid fa-eye" style="color: #74C0FC;"></i></button>
-                            <a href="/admin/?view=Products&edit=<?= $x['id'] ?>" class="btn"><i class="fa-solid fa-pen-to-square" style="color: #FFD43B;"></i></a>
-                            <form action="./controllers/product/delete.php" method="post">
-                                <input type="number" class="d-none" name="id" value="<?= $x['id'] ?>">
-                                <button class="btn" type="submit" name="delete"><i class="fa-solid fa-trash" style="color: #ff0000;"></i></button>
-                            </form>
+                            <a href="/admin/?view=Products&comment=<?= $x['id'] ?>" class="btn"><i class="fa-solid fa-comment" style="color: #74C0FC;"></i></i></button>
+                                <a href="/admin/?view=Products&edit=<?= $x['id'] ?>" class="btn"><i class="fa-solid fa-pen-to-square" style="color: #FFD43B;"></i></a>
+                                <form action="./controllers/product/delete.php" method="post">
+                                    <input type="number" class="d-none" name="id" value="<?= $x['id'] ?>">
+                                    <button class="btn" type="submit" name="delete"><i class="fa-solid fa-trash" style="color: #ff0000;"></i></button>
+                                </form>
                         </td>
                     </tr>
                 <?php } ?>
