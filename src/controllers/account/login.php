@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "../models/account.php";
+require_once "../../models/account.php";
 if (isset($_POST['loginBtn'])) {
     $username = $_POST['logUsername'];
     $password = $_POST['logPassword'];
@@ -13,7 +13,7 @@ function loginAuth($username, $password)
     $user = accountGetByUsername($username);
     if (!$email && !$user) {
         header('Location: /?loginFailed=true');
-    } else if ($password == $email['password'] || $password == $user['password']) {
+    } else if (password_verify($password, $email['password']) || password_verify($password, $user['password'])) {
         $_SESSION['loggedIn'] = true;
         if ($user) {
             $_SESSION['username'] = $user['username'];

@@ -1,11 +1,14 @@
 <?php
 session_start();
-require_once "../models/account.php";
+require_once "../../models/account.php";
 if (isset($_POST['signupBtn'])) {
     $username = $_POST['signupUsername'];
     $email = $_POST['signupEmail'];
     $password = $_POST['signupPassword'];
     $role = 2;
+
+    $password = password_hash($password, PASSWORD_DEFAULT);
+
     accountCreate($username, $email, $password, $role);
 
     $newUser = accountGetByUsername($username);
