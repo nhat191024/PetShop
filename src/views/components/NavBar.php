@@ -88,14 +88,9 @@
                             <?= $listCart ? count($listCart) : '0'  ?>+
                         </span>
                     </button>
-                    <div class="dropstart">
-                        <button class="btn btn-info bg-gradient border border-2 border-black" style="width:60px;" data-bs-toggle="dropdown">
-                            <i class="fa-solid fa-calendar-days" style="color: #000000;"></i>
-                        </button>
-                        <ul class="dropdown-menu text-center mt-5">
-                            <li>Your Schedule</li>
-                        </ul>
-                    </div>
+                    <button type="button" class="btn btn-info bg-gradient border border-2 border-black position-relative" data-bs-toggle="modal" data-bs-target="#meetModal">
+                        <i class="fa-solid fa-calendar-days" style="color: #000000;"></i>
+                    </button>
                 </div>
             </div>
         </div>
