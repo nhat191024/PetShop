@@ -2,6 +2,7 @@
 require_once "./models/product.php";
 require_once "./models/manufacturer.php";
 require_once "./models/productCategory.php";
+require_once "./models/comment.php";
 $listProduct = getAllProducts();
 if ($view == "Products") {
     // Current page
