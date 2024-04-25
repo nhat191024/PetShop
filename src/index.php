@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="/assets/PetShop.svg" />
+    <script src="https://kit.fontawesome.com/b3fe21bea5.js" crossorigin="anonymous"></script>
     <title>PetShop</title>
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
-    <script src="https://kit.fontawesome.com/db7aab17a8.js" crossorigin="anonymous"></script>
 </head>
 <style>
     body::-webkit-scrollbar {
@@ -32,9 +32,13 @@
     require_once "./controllers/category/productCategory/list.php";
     require_once "./controllers/cart/list.php";
     require_once "./controllers/bill/list.php";
+    require_once "./controllers/meet/list.php";
     $loginFailed = isset($_GET['loginFailed']) ? "show" : '';
     $notLogin = isset($_GET['notLogin']) ? "show" : '';
     $addSuccess = isset($_GET['addSuccess']) ? "show" : '';
+    $removeProduct = isset($_GET['removeProduct']) ? "show" : '';
+    $meet = isset($_GET['meet']) ? "show" : '';
+    $cancelMeet = isset($_GET['cancelMeet']) ? "show" : '';
     $userRole = isset($_COOKIE['role']) ? $_COOKIE['role'] : '';
     $view = isset($_GET['view']) ? $_GET['view'] : '/';
     $details = isset($_GET['details']) ? $_GET['details'] : '';

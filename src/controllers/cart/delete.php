@@ -5,5 +5,5 @@ if(!isset($_GET['id'])){
     $id = $_GET['id'];
     require_once "../../models/cart.php";
     deleteCartItem($id);
-    header('Location: /');
+    header('Location: /?removeProduct=true');
 }
