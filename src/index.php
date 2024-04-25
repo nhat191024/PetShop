@@ -77,6 +77,9 @@
         case 'payment':
             require_once "./controllers/payment.php";
             break;
+        case 'settings':
+            require_once "./controllers/setting.php";
+            break;
     }
     if ($view != 'payment') {
         require_once "./views/components/SignUpForm.php";
