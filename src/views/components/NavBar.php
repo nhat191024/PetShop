@@ -69,7 +69,7 @@
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="/controller/account/logout.php">Logout</a>
+                                    <a class="dropdown-item" href="/controllers/account/logout.php">Logout</a>
                                 </li>
                             <?php } else { ?>
                                 <li>
