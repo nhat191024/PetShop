@@ -14,6 +14,7 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
+                                    <th>Type</th>
                                     <th>Create Date</th>
                                     <th>Total</th>
                                     <th>Address</th>
@@ -25,6 +26,7 @@
                                 <?php foreach ($listBill as $item) : ?>
                                     <tr>
                                         <td><?= $item['id'] ?></td>
+                                        <td><?= $item['type'] ?></td>
                                         <td><?= $item['create_at'] ?></td>
                                         <td>
                                             <?php
