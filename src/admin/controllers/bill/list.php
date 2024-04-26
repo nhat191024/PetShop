@@ -7,7 +7,7 @@ if ($view == "Bills") {
     // Current page
     $page = isset($_GET['page']) ? $_GET['page'] : 1;
     // number of bills per page
-    $pageSize = 8;
+    $pageSize = 2;
     // Total page
     $totalPage = ceil(count($listBill) / $pageSize);
     // Get all bills with limit number of bills per page
