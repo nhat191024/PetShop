@@ -28,6 +28,12 @@
     .table-bg {
         background-color: #43cfef !important;
     }
+
+    .avatar {
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+    }
 </style>
 
 <body>
@@ -66,6 +72,16 @@
         switch ($view) {
             case 'Bills':
                 require_once 'controllers/bill/list.php';
+                break;
+            case 'Meet_schedules':
+                require_once 'controllers/meet/list.php';
+                break;
+            case 'Accounts':
+                if ($edit != '') {
+                    require_once 'controllers/account/edit.php';
+                } else {
+                    require_once 'controllers/account/list.php';
+                }
                 break;
             case 'Pet_Categories':
                 if ($edit == '') {
