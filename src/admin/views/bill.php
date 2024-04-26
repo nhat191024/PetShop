@@ -33,7 +33,7 @@
             </thead>
             <tbody class=" fw-medium">
                 <?php
-                foreach ($listBill as $key => $x) { ?>
+                foreach ($listBillPage as $key => $x) { ?>
                     <tr>
                         <td><?= $key + 1 ?></td>
                         <td><?= getAccountById($x['user_id'])['username'] ?></td>
@@ -68,8 +68,10 @@
                                 echo "Fast";
                             } else if ($x['shipment_method'] == 2) {
                                 echo "Normal";
-                            } else {
+                            } else if ($x['shipment_method'] == 3) {
                                 echo "Slow";
+                            } else {
+                                echo "Store Pickup";
                             }
                             ?>
                         </td>
@@ -79,20 +81,35 @@
                                 echo "Processing";
                             } else if ($x['status'] == 2) {
                                 echo "Shipping";
-                            } else {
+                            } else if ($x['status'] == 3) {
                                 echo "Done";
+                            } else {
+                                echo "Cancel";
                             }
                             ?>
                         </td>
                         <td style="width: 10%;" class="rounded-end-3">
+                            <?php if ($x['status'] == 1 && $x['shipment_method'] != 4) : ?>
                             <form action="./controllers/bill/update.php" method="post">
                                 <input type="number" class="d-none" name="id" value="<?= $x['id'] ?>">
                                 <button class="btn" type="submit" name="shipping"><i class="fa-solid fa-truck-fast"></i></button>
                             </form>
+                            <?php else : ?>
+                                <button class="btn btn-dark mb-2" disabled>Not Available</button>
+                            <?php endif; ?>
+                            <?php if ($x['status'] == 1 || $x['status'] == 2) : ?>
                             <form action="./controllers/bill/update.php" method="post">
                                 <input type="number" class="d-none" name="id" value="<?= $x['id'] ?>">
                                 <button class="btn" type="submit" name="complete"><i class="fa-solid fa-check" style="color: #00ff1e;"></i></button>
                             </form>
+                            <?php else : ?>
+                                <button class="btn btn-success mb-2" disabled>Not Available</button>
+                            <?php endif; ?>
+                            <?php if ($x['status'] == 1) : ?>
+                                <a href="./controllers/bill/cancel.php/?id=<?= $x['id'] ?>" class="btn"><i class="fa-solid fa-trash" style="color: #ff0000;"></i></a>
+                            <?php else : ?>
+                                <button class="btn btn-danger" disabled>Not Available</button>
+                            <?php endif; ?>
                         </td>
                     </tr>
                 <?php } ?>
