@@ -12,9 +12,9 @@ function updateBillStatus($id, $status)
     pdo_execute($sql);
 }
 
-function createBill($userId, $name, $email, $total, $phone, $address, $note, $payment, $shipment)
+function createBill($type, $userId, $name, $email, $total, $phone, $address, $note, $payment, $shipment)
 {
-    $sql = "INSERT INTO bill (user_id, name, email, total, phone_number, address, note, payment_method, shipment_method) VALUES ($userId, '$name', '$email', '$total', '$phone','$address', '$note', '$payment', '$shipment')";
+    $sql = "INSERT INTO bill (type, user_id, name, email, total, phone_number, address, note, payment_method, shipment_method) VALUES ('$type', $userId, '$name', '$email', '$total', '$phone','$address', '$note', '$payment', '$shipment')";
     $a = pdo_execute($sql);
     return $a;
 }
