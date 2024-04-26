@@ -44,7 +44,7 @@
             </div>
         </div>
         <div class="float-end">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <a href="/admin/?view=Products" class="btn btn-secondary">Close</a>
             <button type="submit" class="btn btn-primary" name="update<?= $view ?>">Update</button>
         </div>
     </form>
