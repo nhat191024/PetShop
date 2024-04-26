@@ -23,3 +23,9 @@ function getAllPetByCategoryId($id)
     $sql = "SELECT * FROM pet WHERE category_id = $id";
     return pdo_query($sql);
 }
+
+function updatePetStock($id, $stock)
+{
+    $sql = "UPDATE pet SET stock = $stock WHERE id = $id";
+    pdo_execute($sql);
+}
