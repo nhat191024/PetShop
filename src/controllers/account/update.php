@@ -45,6 +45,9 @@ if (!isset($_SESSION['loggedIn'])) {
 
                 $img_upload_path = '../../upload/' . $img_new_name;
                 move_uploaded_file($img_tmp_name, $img_upload_path);
+                if ($account['avatar'] != 'upload/avatar.png') {
+                    unlink('../../' . $account['avatar']);
+                }
             }
         }
 
