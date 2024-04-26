@@ -75,7 +75,7 @@
             <div class="w-100">
                 <h6><?= getAccountById($comment['user_id'])['username'] ?></h6>
                 <p><?= $comment['content'] ?></p>
-                <p class="text-muted">Comment At: <?= $comment['created_at'] ?></p>
+                <p class="text-muted">Comment At: <?= $comment['create_at'] ?></p>
             </div>
         </div>
     <?php } ?>
