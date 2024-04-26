@@ -7,7 +7,9 @@
     <div class="offcanvas-body ">
         <div class="accordion accordion-flush list-group list-group-flush" id="adminSideBarAccordion">
             <a href="/" class="accordion-item list-group-item list-group-item-action pb-4 text-decoration-none text-dark fs-5">Home</a>
+            <a href="/admin/?view=Accounts" class="accordion-item list-group-item list-group-item-action py-4 text-decoration-none text-dark fs-5">Accounts</a>
             <a href="/admin/?view=Bills" class="accordion-item list-group-item list-group-item-action py-4 text-decoration-none text-dark fs-5">Bill</a>
+            <a href="/admin/?view=Meet_schedules" class="accordion-item list-group-item list-group-item-action py-4 text-decoration-none text-dark fs-5">Meet Schedules</a>
             <a href="/admin/?view=Pets" class="accordion-item list-group-item list-group-item-action py-4 text-decoration-none text-dark fs-5">Pet</a>
             <a href="/admin/?view=Products" class="accordion-item list-group-item list-group-item-action py-4 text-decoration-none text-dark fs-5">Product</a>
             <div class="accordion-item py-2">
@@ -50,26 +52,7 @@
                     </div>
                 </div>
             </div>
-            <div class="accordion-item pt-2">
-                <button class="accordion-header accordion-button collapsed text-dark fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#userCollapse" aria-expanded="false" aria-controls="userCollapse">
-                    User
-                </button>
-                <div id="userCollapse" class="accordion-collapse collapse" data-bs-parent="#adminSideBarAccordion">
-                    <div class="accordion-body">
-                        <div class="list-group list-group-flush">
-                            <a href="" class="list-group-item list-group-item-action">
-                                User Item
-                            </a>
-                            <a href="" class="list-group-item list-group-item-action">
-                                User Item
-                            </a>
-                            <a href="" class="list-group-item list-group-item-action">
-                                User Item
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <a href="/admin/controllers/logout.php" class="accordion-item list-group-item list-group-item-action py-4 text-decoration-none text-dark fs-5">Logout</a>
         </div>
     </div>
     <div class="offcanvas-bottom">
