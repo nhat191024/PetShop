@@ -8,7 +8,11 @@
                 <li class="breadcrumb-item active" aria-current="page">Payment</li>
             </ol>
         </nav>
-        <p>Information receiving goods</p>
+        <?php if ($petON) : ?>
+            <p>Pet adoption registration information</p>
+        <?php else : ?>
+            <p>Information receiving goods</p>
+        <?php endif; ?>
         <div class="row row-cols-3 w-75">
             <input type="hidden" value="<?= $_SESSION['user_id'] ?>" name="userId">
             <div class="mb-3 col-12">
@@ -67,9 +71,13 @@
                 <label for="Shipment" class="form-label">Shipment Method</label>
                 <select class="form-select" id="Shipment" name="shipment">
                     <option selected>Open this select menu</option>
-                    <option value="1">Fast</option>
-                    <option value="2">Normal</option>
-                    <option value="3">Slow</option>
+                    <?php if ($petON) : ?>
+                        <option value="4">Store Pickup</option>
+                    <?php else : ?>
+                        <option value="1">Fast</option>
+                        <option value="2">Normal</option>
+                        <option value="3">Slow</option>
+                    <?php endif; ?>
                 </select>
             </div>
             <div class="d-flex gap-3">
@@ -82,43 +90,88 @@
     </div>
     <?php if (isset($_GET['id'])) : ?>
         <div class="container vh-100 w-50 pe-5 mt-2">
-            <h2 class="fw-medium mb-2">Your Cart (1 Product)</h2>
-            <hr>
-            <div class="mt-3">
-                <div class="d-flex w-100">
-                    <img width="14%" src="<?= $product['img_path'] ?>" class="mx-4">
-                    <div class="d-flex flex-column justify-content-center ">
-                        <span class="fw-bold"><?= $product['name'] ?></span>
-                        <span class="fw-bold">Quantity: 1</span>
-                        <div class="d-flex gap-5 ">
-                            <p class="text-muted"><?= getProductCategoryById($product['category_id'])['name'] . "/" . getManufacturerById($product['manufacturer_id'])['name'] ?></p>
-                            <p class="text-muted">
-                                <?php
-                                $a = strrev($product['price']);
-                                $b = str_split($a, 3);
-                                $c = implode(',', $b);
-                                $d = strrev($c);
-                                echo $d;
-                                ?>₫
-                            </p>
+            <?php if ($petON) : ?>
+                <h2 class="fw-medium mb-2">Your New Family Member</h2>
+                <hr>
+                <div class="mt-3">
+                    <div class="d-flex w-100">
+                        <img width="44%" src="<?= $pet['img_path'] ?>" class="mx-4">
+                        <div class="d-flex flex-column justify-content-center ">
+                            <span class="fw-bold"><?= $pet['name'] ?></span>
+                            <span>Category: <?= getPetCategoryById($pet['category_id'])['name'] ?></span>
+                            <span>vaccination: <?= $pet['vaccination'] ?></span>
+                            <span>Color: <?= getColorById($pet['color_id'])['name'] ?></span>
+                            <div class="d-flex gap-5 ">
+                                <p class="text-muted"><?= getSourceById($pet['source_id'])['name'] . "/" .  getBreedById($pet['breed_id'])['name'] ?></p>
+                                <p class="text-muted">
+                                    <?php
+                                    $a = strrev($pet['price']);
+                                    $b = str_split($a, 3);
+                                    $c = implode(',', $b);
+                                    $d = strrev($c);
+                                    echo $d;
+                                    ?>₫
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <hr>
-            <div class="ms-3 fs-3">
-                <p class="text-muted">Total:
-                    <?php
-                    $a = strrev($product['price']);
-                    $b = str_split($a, 3);
-                    $c = implode(',', $b);
-                    $d = strrev($c);
-                    echo $d;
-                    ?>₫
-                    <input type="hidden" name="total" id="total" value="<?= $product['price'] ?>">
-                </p>ad
-            </div>
-            </button>
+                <hr>
+                <div class="ms-3 fs-3">
+                    <p class="text-muted">Total:
+                        <?php
+                        $a = strrev($pet['price']);
+                        $b = str_split($a, 3);
+                        $c = implode(',', $b);
+                        $d = strrev($c);
+                        echo $d;
+                        ?>₫
+                        <input type="hidden" name="total" id="total" value="<?= $pet['price'] ?>">
+                    </p>
+                </div>
+                <input type="hidden" name="type" value="pet">
+                <input type="hidden" name="petId" value="<?= $pet['id'] ?>">
+            <?php else : ?>
+                <h2 class="fw-medium mb-2">Your Cart (1 Product)</h2>
+                <hr>
+                <div class="mt-3">
+                    <div class="d-flex w-100">
+                        <img width="14%" src="<?= $product['img_path'] ?>" class="mx-4">
+                        <div class="d-flex flex-column justify-content-center ">
+                            <span class="fw-bold"><?= $product['name'] ?></span>
+                            <span class="fw-bold">Quantity: 1</span>
+                            <div class="d-flex gap-5 ">
+                                <p class="text-muted"><?= getProductCategoryById($product['category_id'])['name'] . "/" . getManufacturerById($product['manufacturer_id'])['name'] ?></p>
+                                <p class="text-muted">
+                                    <?php
+                                    $a = strrev($product['price']);
+                                    $b = str_split($a, 3);
+                                    $c = implode(',', $b);
+                                    $d = strrev($c);
+                                    echo $d;
+                                    ?>₫
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="ms-3 fs-3">
+                    <p class="text-muted">Total:
+                        <?php
+                        $a = strrev($product['price']);
+                        $b = str_split($a, 3);
+                        $c = implode(',', $b);
+                        $d = strrev($c);
+                        echo $d;
+                        ?>₫
+                        <input type="hidden" name="total" id="total" value="<?= $product['price'] ?>">
+                    </p>
+                </div>
+                <input type="hidden" name="type" value="product">
+                <input type="hidden" name="productId" value="<?= $product['id'] ?>">
+            <?php endif; ?>
+            <input type="hidden" name="single" value="1">
         </div>
     <?php else : ?>
         <div class="container vh-100 w-50 pe-5 mt-2">
@@ -148,6 +201,7 @@
                         </div>
                     </div>
                 <?php endforeach; ?>
+                <input type="hidden" name="type" value="product">
             </div>
             <hr>
             <div class="ms-3 fs-3">
