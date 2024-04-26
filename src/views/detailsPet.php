@@ -59,13 +59,21 @@
                     $d = strrev($c);
                     echo "<button class='btn text-info border border-2 border-info w-25' disabled > $d ₫</button>";
                     ?>
-                    <button class="btn text-info border border-2 border-info w-75" data-bs-toggle="modal" data-bs-target="#meet">Schedule a meet with pet</button>
+                    <button class="btn text-info border border-2 border-info w-75" data-bs-toggle="modal" data-bs-target="#meet" <?php if ($pet['stock'] == 0) echo 'disabled' ?>>Schedule a meet with pet</button>
                 </div>
-                <button class="btn btn-info text-dark fw-medium w-100 mt-2">
+                <?php if ($pet['stock'] == 0) : ?>
+                <button class="btn btn-info text-dark fw-medium w-100 mt-2" disabled>
+                    <span>Out of stock</span>
+                    <br>
+                    <span>This Pet Has Found Their Family!!!</span>
+                </button>
+                <?php else : ?>
+                <a class="btn btn-info text-dark fw-medium w-100 mt-2" href="/?view=payment&id=<?= $pet['id'] ?>&pet=true">
                     <span>Buy now</span>
                     <br>
                     <span>Delivery or receiving at the store</span>
-                </button>
+                </a>
+                <?php endif; ?>
                 <div class="text-center">
                     <span>Call to buy</span>
                     <span class="text-info">090xxxxxx</span>
@@ -73,6 +81,37 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="container h-50 p-4 mt-4 bg-white rounded-2">
+        <h5>Comment</h5>
+        <?php
+        $comments = getAllCommentByPetId($pet['id']);
+        $numberOfComments = count($comments);
+        $numberOfComments == 0 ? print("<p>No comment</p>") : print("<p>$numberOfComments Comment</p>");
+        foreach ($comments as $comment) { ?>
+            <div class="d-flex gap-3 mt-3">
+                <img src="<?= getAccountById($comment['user_id'])['avatar']  ?>" class="rounded-circle" width="50px" height="50px">
+                <div class="w-100">
+                    <h6><?= getAccountById($comment['user_id'])['username'] ?></h6>
+                    <p><?= $comment['content'] ?></p>
+                    <p class="text-muted">Comment At: <?= $comment['create_at'] ?></p>
+                </div>
+            </div>
+        <?php } ?>
+
+        <hr>
+        <?php if (isset($_SESSION['loggedIn'])) : ?>
+            <form action="../controllers/petComment/add.php" method="post">
+                <input type="hidden" value="<?= $pet['id'] ?>" name="pet_id">
+                <div class="form-group">
+                    <label for="comment">Comment</label>
+                    <textarea class="form-control" id="comment" rows="3" name="comment-content"></textarea>
+                </div>
+                <button type="submit" class="btn btn-info mt-2" name="comment-btn">Submit</button>
+            </form>
+        <?php else : ?>
+            <p class="text-danger">Please login to comment</p>
+        <?php endif; ?>
     </div>
 </div>
 
